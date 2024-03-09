@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Meta -->
+
+    <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+   
+    <!-- Title -->
+
+    <title>Hisab Kitab | Owner</title>
+
+    <!-- PWA Version -->
+
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/swiper/swiper-bundle.min.css" />
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body style="overflow: auto;">
+    
+    <div class="modal fade " id="basicModal" style="display: none;" aria-modal="true" role="dialog">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Contact Us</h5>
+      <button class="btn-close" data-bs-dismiss="modal">
+      <i class="fa-solid fa-xmark"></i>
+      </button>
+      </div>
+      <div class="modal-body">
+        if you have any query please our school
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+      <!-- <button type="button" class="btn btn-sm btn-primary">Save changes</button> -->
+      </div>
+      </div>
+      </div>
+      </div>
+      
+
+    <div class="page-wraper" id="Login-Page" style="display:none;" > 
+   
+    
+    <!-- Page Content -->
+    <div class="page-content">
+   
+    <!-- Banner -->
+    <div class="banner-wrapper shape-1">
+    <div class="container inner-wrapper">
+      <img src="../Images/logo.png" alt="">
+    <h2 class="dz-title text-center" style="margin-top: 30px;">Student Login</h2>
+    </div>
+    </div>
+    <!-- Banner End -->
+    
+    <div class="container">
+
+    <form class="">
+
+    <div class="input-group">
+    <input type="tel" placeholder="Student Full Name" id="LoginName"  class="form-control">
+    </div>
+    <div class="input-group">
+    <input type="date" placeholder="Password" id="LoginPassword" class="form-control be-0">
+ 
+    </div>
+
+    <div class="input-group">
+    <a href="#" id="LogInBtn"  class="btn mt-2 btn-primary w-100 btn-rounded">Login</a>
+    </div>
+    <span class="mx-3">if you have any query <span class="text-primary"  data-bs-toggle="modal" data-bs-target="#basicModal">click here</sapn></span>
+    </form>
+ 
+    </div>
+     <div class="d-flex" style="justify-content: space-around;">
+       <a href="User.txt" download="User.txt" class="btn btn-primary">Teacher</a>
+       
+       <a class="btn btn-primary">Principal</a>
+     </div>
+    </div>
+
+    </div>
+    <div class="page-wraper" id="Main-Page"  style="display: block;">
+      <!-- Header -->
+
+      <header class="header transparent">
+        <div class="main-bar sticky-header bg-primary">
+          <div class="container">
+            <div class="header-content">
+              <div class="left-content">
+                <a href="javascript:void(0);" class="menu-toggler">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      opacity="0.4"
+                      d="M16.0755 2H19.4615C20.8637 2 22 3.14585 22 4.55996V7.97452C22 9.38864 20.8637 10.5345 19.4615 10.5345H16.0755C14.6732 10.5345 13.537 9.38864 13.537 7.97452V4.55996C13.537 3.14585 14.6732 2 16.0755 2Z"
+                      fill="#a19fa8"
+                    ></path>
+
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M4.53852 2H7.92449C9.32676 2 10.463 3.14585 10.463 4.55996V7.97452C10.463 9.38864 9.32676 10.5345 7.92449 10.5345H4.53852C3.13626 10.5345 2 9.38864 2 7.97452V4.55996C2 3.14585 3.13626 2 4.53852 2ZM4.53852 13.4655H7.92449C9.32676 13.4655 10.463 14.6114 10.463 16.0255V19.44C10.463 20.8532 9.32676 22 7.92449 22H4.53852C3.13626 22 2 20.8532 2 19.44V16.0255C2 14.6114 3.13626 13.4655 4.53852 13.4655ZM19.4615 13.4655H16.0755C14.6732 13.4655 13.537 14.6114 13.537 16.0255V19.44C13.537 20.8532 14.6732 22 16.0755 22H19.4615C20.8637 22 22 20.8532 22 19.44V16.0255C22 14.6114 20.8637 13.4655 19.4615 13.4655Z"
+                      fill="#a19fa8"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="mid-content">
+                <span class="text-center text-white" id="HeaderName">Home</span>
+              </div>
+
+              <div class="right-content">
+                <button class="btn btn-sm text-white bg-danger " onclick="location.reload()">
+                <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <a href="javascript:void(0);" class="theme-btn active">
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="author-box">
+          <div class="dz-media">
+            <img src="../assets/images/images.png" class="rounded-circle" alt="author-image" />
+          </div>
+
+          <div class="dz-info">
+            <h5 class="name" id="username" ></h5>
+          </div>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="nav-label">Main Menu</li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideHome" >
+              <span class="dz-icon bg-pink light">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+                    fill="#130F26"
+                  />
+                </svg>
+              </span>
+
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideHomeworkPageBtn" >
+              <span class="dz-icon bg-orange light">
+                  <i class="fa-solid fa-pen"></i><br />
+              </span>
+
+              <span>Homework</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideMessagePageBtn" >
+              <span class="dz-icon bg-skyblue light">
+                <i class="fa-solid fa-message"></i>
+              </span>
+
+              <span>Message</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#" id="LogOutBtn" >
+              <span class="dz-icon bg-red light">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect x="0" y="0" width="24" height="24" />
+
+                    <path
+                      d="M14.0069431,7.00607258 C13.4546584,7.00607258 13.0069431,6.55855153 13.0069431,6.00650634 C13.0069431,5.45446114 13.4546584,5.00694009 14.0069431,5.00694009 L15.0069431,5.00694009 C17.2160821,5.00694009 19.0069431,6.7970243 19.0069431,9.00520507 L19.0069431,15.001735 C19.0069431,17.2099158 17.2160821,19 15.0069431,19 L3.00694311,19 C0.797804106,19 -0.993056895,17.2099158 -0.993056895,15.001735 L-0.993056895,8.99826498 C-0.993056895,6.7900842 0.797804106,5 3.00694311,5 L4.00694793,5 C4.55923268,5 5.00694793,5.44752105 5.00694793,5.99956624 C5.00694793,6.55161144 4.55923268,6.99913249 4.00694793,6.99913249 L3.00694311,6.99913249 C1.90237361,6.99913249 1.00694311,7.89417459 1.00694311,8.99826498 L1.00694311,15.001735 C1.00694311,16.1058254 1.90237361,17.0008675 3.00694311,17.0008675 L15.0069431,17.0008675 C16.1115126,17.0008675 17.0069431,16.1058254 17.0069431,15.001735 L17.0069431,9.00520507 C17.0069431,7.90111468 16.1115126,7.00607258 15.0069431,7.00607258 L14.0069431,7.00607258 Z"
+                      fill="#fff"
+                      fill-rule="nonzero"
+                      opacity="0.3"
+                      transform="translate(9.006943, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-9.006943, -12.000000) "
+                    />
+
+                    <rect fill="#ff4db8" opacity="0.3" transform="translate(14.000000, 12.000000) rotate(-270.000000) translate(-14.000000, -12.000000) " x="13" y="6" width="2" height="12" rx="1" />
+
+                    <path
+                      d="M21.7928932,9.79289322 C22.1834175,9.40236893 22.8165825,9.40236893 23.2071068,9.79289322 C23.5976311,10.1834175 23.5976311,10.8165825 23.2071068,11.2071068 L20.2071068,14.2071068 C19.8165825,14.5976311 19.1834175,14.5976311 18.7928932,14.2071068 L15.7928932,11.2071068 C15.4023689,10.8165825 15.4023689,10.1834175 15.7928932,9.79289322 C16.1834175,9.40236893 16.8165825,9.40236893 17.2071068,9.79289322 L19.5,12.0857864 L21.7928932,9.79289322 Z"
+                      fill="#fff"
+                      fill-rule="nonzero"
+                      transform="translate(19.500000, 12.000000) rotate(-90.000000) translate(-19.500000, -12.000000) "
+                    />
+                  </g>
+                </svg>
+              </span>
+
+              <span>Logout</span>
+            </a>
+          </li>
+
+          <li class="nav-label">Settings</li>
+
+          <li>
+            <div class="mode">
+              <span class="dz-icon bg-green light">
+                <i class="fa-solid fa-moon"></i>
+              </span>
+
+              <span>Dark Mode</span>
+
+              <div class="custom-switch">
+                <input type="checkbox" class="switch-input theme-btn" id="toggle-dark-menu" />
+
+                <label class="custom-switch-label" for="toggle-dark-menu"></label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Page Content -->
+
+      <div class="page-content">
+        <!-- Home Page -->
+        <div id="Home-Page" style="display: block; position: relative; top: 40px; left: 5px; overflow: hidden;">
+          <div class="content-inner pt-0">
+            <div class="container fb">
+              <!-- Search -->
+              
+              <div class="m-b20"></div>
+          
+              <!-- Dashboard Area -->
+
+              <div class="dashboard-area">
+                <!-- Features -->
+
+                <div class="features-box" style="position: relative; left: 10px;">
+                 
+                  <div class="row m-b20 g-3" >
+              
+                    <div class="col">
+                      <button class="btn" id="ProfilePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/profile.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:20px; font-size: 15px;">Profile</span>
+                    </div>
+
+                    
+                    <div class="col">
+                      <button class="btn" id="HomeworkPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/table.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:px; font-size: 15px;">Homework</span>
+                    </div>
+
+                    
+                    <div class="col">
+                      <button class="btn" id="ExamPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/exam.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:18px; font-size: 15px;">Exam</span>
+                    </div>
+                  </div>
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -10px;">
+                    <div class="col">
+                      <button class="btn" id="MessagePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/salary.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:10px; font-size: 15px;">Message</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="ResultPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/exam-results.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:20px; font-size: 15px;">Result</span>
+                    </div>
+
+                    
+                    <div class="col">
+                      <button class="btn" id="AttendancePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/schedule.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:px; font-size: 15px;">Attendance</span>
+                    </div>
+                  </div>
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -20px;">
+
+                   
+
+                    
+                    <div class="col">
+                      <button class="btn" id="HolidayPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/hammock.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Holiday</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="RoutinePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/computer.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Routine</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="FeePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/receipt.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:25px; font-size: 15px;">Fee</span>
+                    </div>
+
+                  </div>
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -30px;">
+
+                    
+                    <div class="col">
+                      <button class="btn" id="ParentPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/parents.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Parents</span>
+                    </div>
+                    
+                    <div class="col">
+                      <button class="btn" id="GalleryPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/photo.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Gallery</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn"  style="width: 75px; height: 75px; padding:0;">
+                          <!-- <img src="../Images/photo.png"  alt=""> -->
+                          <br>
+                        </button>
+                        <!-- <span style="margin-left:15px; font-size: 15px;">Gallery</span> -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        </div>
+      
+        <div id="Profile-Page" style="display: none; position: relative; top: 60px;">
+          <div class="page-content bottom-content">
+            <div class="dz-banner-heading">
+            <div class="overlay-black-light">
+            <img src="../Images/logo.jpg" class="bnr-img" alt="" />
+            </div>
+            </div>
+            <div class="container profile-area">
+            <div class="profile">
+            <div class="media media-100">
+            <img src="../Images/profile.png" alt="/" />
+            </div>
+            <div class="mb-2">
+            <h4 class="mb-0">Student Name</h4>
+            <span class="detail">Student</span>
+            </div>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu</p>
+            </div>
+            <div class="mb-2">
+              <h4 class="mb-0">Student Information</h4>
+              <table class="table rounded" id="usertable">
+          
+                <tbody>
+                  <tr>
+                    <td scope="col">Name</td>
+                    <td scope="col"></td>
+                  </tr>
+                  <tr>
+                    <td scope="col">Father Name</td>
+                    <td scope="col"></td>
+                  </tr>
+                  <tr>
+                    <td scope="col">Mother Name</td>
+                    <td scope="col"></td>
+                  </tr>
+                  <tr>
+                    <td scope="col">DOB</td>
+                    <td scope="col"></td>
+                  </tr>
+                  <tr>
+                    <td scope="col">Class</td>
+                    <td scope="col"></td>
+                  </tr>
+                 
+                </tbody>
+                </table>
+              </div>
+            </div>
+            </div>
+            
+        </div>
+      
+        <!-- Homework Page -->
+        <div id="Homework-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <h1 class="text-center">Daily Homework</h1>
+            <div id="HomeworkSection"></div>
+           
+            </div>
+            
+        </div>
+        <!-- Exam Page -->
+        <div id="Exam-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container" id="ExamSection">
+            <h1 class="text-center">Exam Date Sheet</h1>
+          </div>
+          
+        </div>
+        <!-- Message Page -->
+        <div id="Message-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container">
+            <div class="notification-content" id="MessageSection">
+              <h2 class="text-center">Recent Message's</h2>
+            </div>
+            </div>
+            
+          
+        </div>
+
+        <div id="Result-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <div class="Buttons" style="position: relative; top: -10px;">
+              <button class="btn btn-secondary" id="SchoolExamPageBtn" style="position: relative;width: 45%; left:2%;">School Exam</button>
+              <button class="btn btn-success" id="ClassTestPageBtn" style="position: relative;width: 45%; left: 5%;">Class Test</button>
+            </div>
+            <div id="SchoolExamSection" style="display: block;">
+              <h1 class="text-center" >School Exam Result</h1>
+            </div>
+            <div id="ClassExamSection" style="display: none;">
+              <h1 class="text-center">Class Test Result</h1>
+            </div>
+              
+              </div>
+            
+          
+        </div>
+
+        <div id="Attendance-Page" style="display: none; position: relative; top: 60px;">
+          <!-- <button class="btn btn-danger" id="ClearHistoryBtn" >Clear History</button> -->
+          <div id="AbsentRecord" class="bg-danger rounded text-white text-center"> 0 </div>
+          <div id="PresentRecord" class="bg-success rounded text-white text-center"> 0 </div>
+          <style type="text/css">
+          
+          #AbsentRecord,
+          #PresentRecord,
+          #EraseData{
+          position: absolute;
+          top:0%;
+          right:2.5%;
+          width:45%; 
+          height: 50px;
+          font-size:25px;
+          line-height:50px;
+          }
+          
+          #ClearHistoryBtn{
+            position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+          }
+
+          #EraseData{
+            top: 60px;
+            width:95%;
+            font-size:20px;
+          }
+          
+          #PresentRecord {
+          left:2.5%; 
+          }
+          
+          </style>         
+          <div class="container fb">
+            <!-- row -->
+            <div class="row">
+            <div class="col-12">
+            <div class="card" style="margin-top: 50px;">
+            <div class="card-header">
+            <h5 class="card-title">Attendance Record</h5>
+            </div>
+            <div class="card-body py-2">
+            <div class="dz-list">
+            <ul id="AttendanceRecord"></ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+        </div>
+
+        <div id="Notice-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container">
+            <div class="notification-content">
+            <a href="profile.html">
+            <div class="notification active">
+            <h6>Apply Success</h6>
+            <p>You has apply an job in Queenify Group as UI Designer</p>
+            <div class="notification-footer">
+            <span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            10h ago
+            </span>
+            <p class="mb-0">Mark as read</p>
+            </div>
+            </div>
+            </a>
+            </div>
+            </div>
+        </div>
+
+        <div id="Holiday-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container">
+            <div class="notification-content">
+              <h2 class="text-center">Page is Coming Soon..</h2>
+            </div>
+            </div>
+          
+        </div>
+
+        <div id="Routine-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb" id="RoutineSection">
+              <h2 class="text-center">Class Routine</h2>
+            </div>
+          
+        </div>
+
+        <div id="Fee-Page"  style="display: none; position: relative; left:10px; top: 70px;">
+          <h2 class="text-center">Your Fee Record</h2>
+          <div class="row m-b20 g-3">
+              
+            <div class="col">
+              <button class="btn btn-primary" style="position:relative;  width: 150px; height: 150px; left: 95px;">
+                 <div>
+                  <h2 class="text-center text-white" id="TotalFee"></h2>
+                  <h4 class="text-center text-white">Total Fee</h4>
+                 
+                </div>
+                 
+              </button>
+            </div>
+
+           
+          </div>     
+
+          <div class="row m-b20 g-3">
+      
+            <div class="col">
+              <button class="btn btn-danger" style="width: 150px; height: 150px;">
+                <div>
+                  <h2 class="text-center text-white" id="SubmitedFee"></h2>
+                  <h4 class="text-center text-white">Submited Fee</h4>
+                 
+                </div>
+              </button>
+            </div>
+
+            <div class="col">
+              <button class="btn bg-secondary" style="width: 150px; height: 150px;">
+                <div>
+                  <h2 class="text-center text-white" id="PandingFee"></h2>
+                  <h4 class="text-center text-white">Panding Fee</h4>
+                 
+                </div>  
+              </button>
+            </div>
+          </div>
+
+          <div class="container my-3" >
+            <div class="row" style="margin-right: 5px;">
+              <div class="col-12">
+              <div class="card" >
+              <div class="card-header">
+              <h5 class="card-title">Previous Salary Record</h5>
+              </div>
+              <div class="card-body py-2">
+                
+              <div class="dz-list">
+              <ul id="FeeRecord">
+         
+                 
+              </ul>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+           
+          </div>
+
+        </div>
+        
+        <div id="Parent-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <h2 class="text-center">Parent Information</h2>
+            <div class="serach-area">
+              <div class="list item-list recent-jobs-list">
+                <ul id="ParentList">
+                 
+                </ul>
+              </div>
+
+              <!-- Job List -->
+            </div>
+    
+
+        <div id="Gallery-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <h2 class="text-center">Page is Coming Soon...</h2>
+            </div>
+            
+          
+        </div>
+        
+        
+      </div>
+</div>
+      <!-- Page Content End-->
+
+      <!-- Menubar -->
+
+      <div class="menubar-area" style="display: block;" id="BottomBar">
+        <div class="toolbar-inner menubar-nav">
+          <a href="#" class="nav-link active" id="HomePageBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+                fill="#130F26"
+              />
+            </svg>
+          </a>
+
+          <a href="#" class="nav-link" id="BottomHomeworkPageBtn">
+            <svg xmlns="http://www.w3.org/2000/svg"   height="22" width="22" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#a19fa8" d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"  fill="#130F26"/></svg>         
+           
+          </a>
+
+          <a href="#" class="nav-link" id="BottomMessagePageBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22"  viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#a19fa8"  d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>          </a>
+
+          <a href="javascript:void(0);" class="menu-toggler">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                opacity="0.4"
+                d="M16.0755 2H19.4615C20.8637 2 22 3.14585 22 4.55996V7.97452C22 9.38864 20.8637 10.5345 19.4615 10.5345H16.0755C14.6732 10.5345 13.537 9.38864 13.537 7.97452V4.55996C13.537 3.14585 14.6732 2 16.0755 2Z"
+                fill="#a19fa8"
+              />
+
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.53852 2H7.92449C9.32676 2 10.463 3.14585 10.463 4.55996V7.97452C10.463 9.38864 9.32676 10.5345 7.92449 10.5345H4.53852C3.13626 10.5345 2 9.38864 2 7.97452V4.55996C2 3.14585 3.13626 2 4.53852 2ZM4.53852 13.4655H7.92449C9.32676 13.4655 10.463 14.6114 10.463 16.0255V19.44C10.463 20.8532 9.32676 22 7.92449 22H4.53852C3.13626 22 2 20.8532 2 19.44V16.0255C2 14.6114 3.13626 13.4655 4.53852 13.4655ZM19.4615 13.4655H16.0755C14.6732 13.4655 13.537 14.6114 13.537 16.0255V19.44C13.537 20.8532 14.6732 22 16.0755 22H19.4615C20.8637 22 22 20.8532 22 19.44V16.0255C22 14.6114 20.8637 13.4655 19.4615 13.4655Z"
+                fill="#a19fa8"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Menubar -->
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+    <script src="../assets/js/jquery.js"></script>
+
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets/js/settings.js"></script>
+
+    <script src="../assets/js/custom.js"></script>
+
+    <!-- Swiper -->
+
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Swiper -->
+
+    <script type="text/javascript">
+      // Define page elements
+      const mainPage = document.querySelector("#Main-Page")
+      
+      const homePage = document.querySelector("#Home-Page");
+
+      const profilePage = document.querySelector("#Profile-Page");
+
+      const homeworkPage = document.querySelector("#Homework-Page");
+
+      const examPage = document.querySelector("#Exam-Page");
+
+      const messagePage = document.querySelector("#Message-Page");
+
+      const resultPage = document.querySelector("#Result-Page");
+      const SchoolExamSection = document.querySelector("#SchoolExamSection");
+      const ClassExamSection = document.querySelector("#ClassExamSection")
+
+      const attendancePage = document.querySelector("#Attendance-Page");
+
+      const noticePage = document.querySelector("#Notice-Page");
+
+      const holidayPage = document.querySelector("#Holiday-Page")
+      
+      const routinePage = document.querySelector("#Routine-Page")
+      
+      const feePage = document.querySelector("#Fee-Page")
+      
+      const parentPage = document.querySelector("#Parent-Page")
+
+      const galleryPage = document.querySelector("#Gallery-Page")
+
+
+      const loginPage = document.querySelector("#Login-Page");
+      const headerName = document.getElementById("HeaderName");
+    
+
+
+      function hideAllPages() {
+        const allPages = [homePage, homeworkPage,profilePage ,resultPage,ClassExamSection, examPage, messagePage, attendancePage, noticePage, holidayPage, routinePage, feePage, parentPage, galleryPage, loginPage];
+
+        allPages.forEach((page) => {
+          page.style.display = "none";
+        });
+      }
+
+      ProfilePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+          headerName.innerHTML = "Profile Page";
+
+          profilePage.style.display = "block";
+
+      
+      });
+
+      HomePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Home Page";
+
+        homePage.style.display = "block";
+
+        setActiveClass(HomePageBtn);
+      });
+
+      HomeworkPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Homework Page";
+
+        homeworkPage.style.display = "block";
+
+        setActiveClass(HomePageBtn);
+      });
+      
+      ExamPageBtn.addEventListener("click", function () {
+        hideAllPages();
+      
+        headerName.innerHTML = "Exam Page";
+      
+        examPage.style.display = "block";
+      
+        setActiveClass(HomePageBtn);
+      });
+
+      // Event listener for DailyEntryBtn
+
+      MessagePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Message Page";
+
+        messagePage.style.display = "block";
+
+        setActiveClass(DailyEntryBtn);
+      });
+      
+      ResultPageBtn.addEventListener("click", function () {
+        hideAllPages();
+      
+        headerName.innerHTML = "Result Page";
+      
+        resultPage.style.display = "block";
+      
+        setActiveClass(DailyEntryBtn);
+      });
+// let SchoolExamPageBtn = document.querySelector("#SchoolExamPageBtn")
+      SchoolExamPageBtn.addEventListener('click', function(){
+        // alert('Click On School')
+        hideAllPages();
+
+        headerName.innerHTML = "Result Page"
+        resultPage.style.display = "block";
+        SchoolExamSection.style.display = "block"
+        ClassExamSection.style.display = "none"
+      })
+
+      ClassTestPageBtn.addEventListener('click', function(){
+        // alert('Click On School')
+        hideAllPages();
+
+        headerName.innerHTML = "Result Page"
+        resultPage.style.display = "block";
+        SchoolExamSection.style.display = "none"
+        ClassExamSection.style.display = "block"
+      })
+
+
+      AttendancePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Attendance Page";
+
+        attendancePage.style.display = "block";
+      });
+
+
+      HolidayPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Holiday Page";
+
+        holidayPage.style.display = "block";
+      });
+      
+      RoutinePageBtn.addEventListener("click", function () {
+        hideAllPages();
+      
+        headerName.innerHTML = "Routine Page";
+      
+        routinePage.style.display = "block";
+      });
+
+      FeePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Fee Page";
+
+        feePage.style.display = "block";
+      });
+
+      // Event listener for BottomDailyEntryBtn
+
+      ParentPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Parent Page";
+
+        parentPage.style.display = "block";
+
+        // setActiveClass(BottomDailyEntryBtn);
+      });
+
+      GalleryPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Gallery Page";
+
+        galleryPage.style.display = "block";
+
+        // setActiveClass(BottomProductBtn);
+      });
+
+      SideHomeworkPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Homework Page";
+
+        homeworkPage.style.display = "block";
+
+        // setActiveClass(BottomProductBtn);
+      });
+
+      SideMessagePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Message Page";
+
+        messagePage.style.display = "block";
+
+        // setActiveClass(BottomProductBtn);
+      });
+
+      HomePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Home";
+
+        homePage.style.display = "block";
+
+        setActiveClass(HomePageBtn);
+      });
+
+      BottomHomeworkPageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Homework Page";
+
+        homeworkPage.style.display = "block";
+
+        setActiveClass(BottomHomeworkPageBtn);
+      });
+
+
+      BottomMessagePageBtn.addEventListener("click", function () {
+        hideAllPages();
+
+        headerName.innerHTML = "Message Page";
+
+        messagePage.style.display = "block";
+
+        setActiveClass(BottomMessagePageBtn);
+      });
+      // Function to set active class on clicked button
+      setActiveClass(HomePageBtn);
+      function setActiveClass(clickedButton) {
+        const allButtons = [HomePageBtn, BottomHomeworkPageBtn, BottomMessagePageBtn];
+
+        allButtons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        clickedButton.classList.add("active");
+      }
+
+      // Repeat the structur
+    </script>
+  </body>
+</html>

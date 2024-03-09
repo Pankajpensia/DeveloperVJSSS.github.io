@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Meta -->
+
+    <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+   
+    <!-- Title -->
+
+    <title>VJSSS VALALANA</title>
+
+    <!-- PWA Version -->
+
+    <link rel="manifest" href="../manifest.json" />
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+
+    <link rel="stylesheet" href="../assets/vendor/swiper/swiper-bundle.min.css" />
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body style="overflow: auto;">
+    
+    <div class="modal fade" id="exampleModalLong" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Edit Student Details</h5>
+                  <button class="btn-close" data-bs-dismiss="modal">
+                      <i class="fa-solid fa-xmark"></i>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <h2 class="text-center">Personal Information</h2>
+              
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Student Name" id="EditStudentName" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="DOB" id="EditDOB" aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control my-2" placeholder="Class" id="EditClass" aria-label="Last name">
+                      </div>
+                  
+              
+                    <h2 class="text-center">Parent Information</h2>
+                    <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Mobile Number" id="EditMobile" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Father Name" id="EditFather" aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control my-2" placeholder="Mother Name" id="EditMother" aria-label="Last name">
+                      </div>
+                 
+                 
+                    <h2 class="text-center">Fee Information</h2>
+                    <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Total Fee" id="ModiftyTotal" aria-label="First name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Submited Fee" id="ModifySubmited" aria-label="Last name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control my-2" placeholder="Panding Fee" id="ModifyPanding" aria-label="Last name">
+                      </div>
+                  
+                 
+                    <h2 class="text-center">Add Fee Record</h2>
+                    <div class="col">
+                      <input type="tel" class="form-control my-2" placeholder="Fee Amount" id="NewFeeAmount" aria-label="Fee Amount">
+                    </div>
+                    <div class="col">
+                      <input type="date" class="form-control my-2" placeholder="DOB" id="NewFeeDate" >
+                    </div>
+                    <div class="col">
+                      <button class="btn btn-primary my-2" id="SaveFeeRecordBtn" style="width: 150px; height:40px; font-size: 15px;">Add Now</button>
+                    </div>
+                  
+                  <div class="container my-2">
+                    <button class="btn btn-danger my-2" id="SaveChangesBtn" style="width: 120px; height:40px; font-size: 20px;">Submit</button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+                </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="example4ModalLong" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Teacher Details</h5>
+                <button class="btn-close" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+              <h2 class="text-center">Personal Information</h2>
+            
+                  <div class="col">
+                    <input type="text" class="form-control" placeholder="Teacher Name" id="EditTeacherName" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control my-2" placeholder="DOB" id="EditTeacherDOB" aria-label="Last name">
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Class" id="EditTeacherClass" aria-label="Last name">
+                    </div>
+                
+            
+                  <h2 class="text-center">Parent Information</h2>
+                  <div class="col">
+                    <input type="text" class="form-control my-2" placeholder="Mobile Number" id="EditTeacherMobile" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control my-2" placeholder="Father Name" id="EditTeacherFather" aria-label="Last name">
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Mother Name" id="EditTeacherMother" aria-label="Last name">
+                    </div>
+               
+               
+                  <h2 class="text-center">Salery Information</h2>
+                  <div class="col">
+                    <input type="text" class="form-control my-2" placeholder="Total Salery" id="EditTotalSalery" aria-label="First name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control my-2" placeholder="Recived Salery" id="EditRecivedSalery" aria-label="Last name">
+                  </div>
+                  <div class="col">
+                      <input type="text" class="form-control my-2" placeholder="Panding Salery" id="EditPandingSalery" aria-label="Last name">
+                    </div>
+                
+               
+                  <h2 class="text-center">Add Salery Record</h2>
+                  <div class="col">
+                    <input type="tel" class="form-control my-2" placeholder="Salery Amount" id="NewSaleryRecord" aria-label="Fee Amount">
+                  </div>
+                  <div class="col">
+                    <input type="date" class="form-control my-2" placeholder="DOB" id="NewSaleryRecordDate" >
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-primary my-2" id="SaveSaleryRecordBtn" style="width: 150px; height:40px; font-size: 15px;">Add Now</button>
+                  </div>
+                
+                <div class="container my-2">
+                  <button class="btn btn-danger my-2" id="SaveEditInfo" style="width: 120px; height:40px; font-size: 20px;">Submit</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="example5ModalLong" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">View Salery Record</h5>
+              <button class="btn-close" data-bs-dismiss="modal">
+                  <i class="fa-solid fa-xmark"></i>
+              </button>
+          </div>
+         <div class="modal-body">
+          <div class="row">
+            <div class="container mx-4">
+            <h2 class="text-center">Salery Record</h2>
+    <table class="table" style="position: relative; right: 20px;">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody id="SaleryRecordSection">
+     
+      </tbody>
+    </table>
+    </div>
+          </div>
+         </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+            </div>
+      </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="example1ModalLong" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">View Fee Record</h5>
+                <button class="btn-close" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+           <div class="modal-body">
+            <div class="row">
+              <div class="container mx-4">
+              <h2 class="text-center">Fee Record</h2>
+      <table class="table" style="position: relative; right: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="FeeRecord">
+       
+        </tbody>
+      </table>
+      </div>
+            </div>
+           </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="basicModal" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title">Delete Student</h5>
+  <button class="btn-close" data-bs-dismiss="modal">
+  <i class="fa-solid fa-xmark"></i>
+  </button>
+  </div>
+  <div class="modal-body"> <h3>Are You Sure To Delete Student Record</h3>
+    <button type="button" class="btn btn-danger" id="DeleteStudentRecordBtn">Delete Student</button></div>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="modal fade" id="basic2Modal" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title">Delete Teacher</h5>
+    <button class="btn-close" data-bs-dismiss="modal">
+    <i class="fa-solid fa-xmark"></i>
+    </button>
+    </div>
+    <div class="modal-body"> <h3>Are You Sure To Delete Teacher Account</h3>
+      <button type="button" class="btn btn-danger" id="DeleteTeacherAccountBtn">Delete Teacher</button></div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="modal fade " id="basic7Modal" style="display: none;" aria-modal="true" role="dialog">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Contact Us</h5>
+      <button class="btn-close" data-bs-dismiss="modal">
+      <i class="fa-solid fa-xmark"></i>
+      </button>
+      </div>
+      <div class="modal-body">
+        if you have any query please visit our school
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+      <!-- <button type="button" class="btn btn-sm btn-primary">Save changes</button> -->
+      </div>
+      </div>
+      </div>
+      </div>
+      
+
+    <div class="page-wraper" id="Login-Page" style="position: absolute;display:none; overflow: hidden;" > 
+   
+    
+    <!-- Page Content -->
+    <div class="page-content" style="overflow: hidden;">
+   
+    <!-- Banner -->
+    <div class="banner-wrapper shape-1">
+    <div class="container inner-wrapper">
+      <img src="../Images/logo.png" alt="">
+    <h2 class="dz-title text-center" style="margin-top: 30px;">Principal Login</h2>
+    </div>
+    </div>
+    <!-- Banner End -->
+    
+    <div class="container">
+
+    <form class="">
+
+    <div class="input-group">
+    <input type="tel" placeholder="Principal Mobile Number" id="TeacherName"  class="form-control" style="text-transform: uppercase;">
+    </div>
+    <div class="input-group">
+    <input type="text" placeholder="Password" id="password" class="form-control be-0" >
+ 
+    </div>
+
+    <div class="input-group">
+    <a href="#" id="LogInBtn"  class="btn mt-2 btn-primary w-100 btn-rounded">Login</a>
+    </div>
+    <span class="mx-3">if you have any query <span class="text-primary"  data-bs-toggle="modal" data-bs-target="#basic7Modal">click here</sapn></span>
+    </form>
+    
+    </div>
+    </div>
+
+    </div>
+    
+ 
+
+    <div class="page-wraper" id="Main-Page"  style="display: none;">
+      <!-- Header -->
+
+      <header class="header transparent">
+        <div class="main-bar sticky-header bg-primary">
+          <div class="container">
+            <div class="header-content">
+              <div class="left-content">
+                <a href="javascript:void(0);" class="menu-toggler">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      opacity="0.4"
+                      d="M16.0755 2H19.4615C20.8637 2 22 3.14585 22 4.55996V7.97452C22 9.38864 20.8637 10.5345 19.4615 10.5345H16.0755C14.6732 10.5345 13.537 9.38864 13.537 7.97452V4.55996C13.537 3.14585 14.6732 2 16.0755 2Z"
+                      fill="#a19fa8"
+                    ></path>
+
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M4.53852 2H7.92449C9.32676 2 10.463 3.14585 10.463 4.55996V7.97452C10.463 9.38864 9.32676 10.5345 7.92449 10.5345H4.53852C3.13626 10.5345 2 9.38864 2 7.97452V4.55996C2 3.14585 3.13626 2 4.53852 2ZM4.53852 13.4655H7.92449C9.32676 13.4655 10.463 14.6114 10.463 16.0255V19.44C10.463 20.8532 9.32676 22 7.92449 22H4.53852C3.13626 22 2 20.8532 2 19.44V16.0255C2 14.6114 3.13626 13.4655 4.53852 13.4655ZM19.4615 13.4655H16.0755C14.6732 13.4655 13.537 14.6114 13.537 16.0255V19.44C13.537 20.8532 14.6732 22 16.0755 22H19.4615C20.8637 22 22 20.8532 22 19.44V16.0255C22 14.6114 20.8637 13.4655 19.4615 13.4655Z"
+                      fill="#a19fa8"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="mid-content">
+                <span class="text-center text-white" id="HeaderName">Home</span>
+              </div>
+
+              <div class="right-content">
+                <button class="btn btn-sm text-white bg-danger " onclick="location.reload()">
+                <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <a href="javascript:void(0);" class="theme-btn active">
+                  <svg class="dark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                  </svg>
+
+                  <svg class="light" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="author-box">
+          <div class="dz-media">
+            <img src="../assets/images/images.png" class="rounded-circle" alt="author-image" />
+          </div>
+
+          <div class="dz-info">
+            <h5 class="name" id="username" ></h5>
+          </div>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="nav-label">Main Menu</li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideHome" >
+              <span class="dz-icon bg-pink light">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+                    fill="#130F26"
+                  />
+                </svg>
+              </span>
+
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideHomeworkPageBtn" >
+              <span class="dz-icon bg-orange light">
+                  <i class="fa-solid fa-pen"></i><br />
+              </span>
+
+              <span>Homework</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#" id="SideMessagePageBtn" >
+              <span class="dz-icon bg-skyblue light">
+                <i class="fa-solid fa-message"></i>
+              </span>
+
+              <span>Message</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#" id="LogOutBtn" >
+              <span class="dz-icon bg-red light">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 24 24" version="1.1" class="svg-main-icon">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect x="0" y="0" width="24" height="24" />
+
+                    <path
+                      d="M14.0069431,7.00607258 C13.4546584,7.00607258 13.0069431,6.55855153 13.0069431,6.00650634 C13.0069431,5.45446114 13.4546584,5.00694009 14.0069431,5.00694009 L15.0069431,5.00694009 C17.2160821,5.00694009 19.0069431,6.7970243 19.0069431,9.00520507 L19.0069431,15.001735 C19.0069431,17.2099158 17.2160821,19 15.0069431,19 L3.00694311,19 C0.797804106,19 -0.993056895,17.2099158 -0.993056895,15.001735 L-0.993056895,8.99826498 C-0.993056895,6.7900842 0.797804106,5 3.00694311,5 L4.00694793,5 C4.55923268,5 5.00694793,5.44752105 5.00694793,5.99956624 C5.00694793,6.55161144 4.55923268,6.99913249 4.00694793,6.99913249 L3.00694311,6.99913249 C1.90237361,6.99913249 1.00694311,7.89417459 1.00694311,8.99826498 L1.00694311,15.001735 C1.00694311,16.1058254 1.90237361,17.0008675 3.00694311,17.0008675 L15.0069431,17.0008675 C16.1115126,17.0008675 17.0069431,16.1058254 17.0069431,15.001735 L17.0069431,9.00520507 C17.0069431,7.90111468 16.1115126,7.00607258 15.0069431,7.00607258 L14.0069431,7.00607258 Z"
+                      fill="#fff"
+                      fill-rule="nonzero"
+                      opacity="0.3"
+                      transform="translate(9.006943, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-9.006943, -12.000000) "
+                    />
+
+                    <rect fill="#ff4db8" opacity="0.3" transform="translate(14.000000, 12.000000) rotate(-270.000000) translate(-14.000000, -12.000000) " x="13" y="6" width="2" height="12" rx="1" />
+
+                    <path
+                      d="M21.7928932,9.79289322 C22.1834175,9.40236893 22.8165825,9.40236893 23.2071068,9.79289322 C23.5976311,10.1834175 23.5976311,10.8165825 23.2071068,11.2071068 L20.2071068,14.2071068 C19.8165825,14.5976311 19.1834175,14.5976311 18.7928932,14.2071068 L15.7928932,11.2071068 C15.4023689,10.8165825 15.4023689,10.1834175 15.7928932,9.79289322 C16.1834175,9.40236893 16.8165825,9.40236893 17.2071068,9.79289322 L19.5,12.0857864 L21.7928932,9.79289322 Z"
+                      fill="#fff"
+                      fill-rule="nonzero"
+                      transform="translate(19.500000, 12.000000) rotate(-90.000000) translate(-19.500000, -12.000000) "
+                    />
+                  </g>
+                </svg>
+              </span>
+
+              <span>Logout</span>
+            </a>
+          </li>
+
+          <li class="nav-label">Settings</li>
+
+          <li>
+            <div class="mode">
+              <span class="dz-icon bg-green light">
+                <i class="fa-solid fa-moon"></i>
+              </span>
+
+              <span>Dark Mode</span>
+
+              <div class="custom-switch">
+                <input type="checkbox" class="switch-input theme-btn" id="toggle-dark-menu" />
+
+                <label class="custom-switch-label" for="toggle-dark-menu"></label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Page Content -->
+
+      <div class="page-content">
+        <!-- Home Page -->
+        <div id="Home-Page" style="display: block; position: relative; top: 40px; left: 5px;">
+          <div class="content-inner pt-0">
+            <div class="container fb">
+              <!-- Search -->
+              
+              <div class="m-b20"></div>
+          
+              <!-- Dashboard Area -->
+
+              <div class="dashboard-area">
+                <!-- Features -->
+
+                <div class="features-box" style="position: relative; left: 10px;">
+                 
+                  <div class="row m-b20 g-3" >
+              
+                    <div class="col">
+                      <button class="btn" id="ProfilePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/profile.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:20px; font-size: 15px;">Profile</span>
+                    </div>
+
+                    
+                    <div class="col">
+                      <button class="btn" id="HomeworkPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/table.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:px; font-size: 15px;">Homework</span>
+                    </div>
+
+                    
+                    <div class="col">
+                      <button class="btn" id="ExamPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/exam.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:18px; font-size: 15px;">Exam</span>
+                    </div>
+                  </div>
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -10px;">
+                   
+
+                    <div class="col">
+                      <button class="btn" id="ResultPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/exam-results.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:20px; font-size: 15px;">Result</span>
+                    </div>
+                    <div class="col">
+                      <button class="btn" id="NoticePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/chat.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:5px; font-size: 15px;">Message</span>
+                    </div>
+                    
+                    <div class="col">
+                      <button class="btn" id="AttendancePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/schedule.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:px; font-size: 15px;">Attendance</span>
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -20px;">
+
+                    <div class="col">
+                      <button class="btn" id="RoutinePageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/computer.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Routine</span>
+                    </div>
+                
+                    <div class="col">
+                      <button class="btn" id="GalleryPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/photo.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Gallery</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="StudentPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/graduates.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:15px; font-size: 15px;">Student</span>
+                    </div>
+                  </div>
+
+                  
+                  <div class="row m-b20 g-3" style="position: relative; top: -20px;">
+
+                   
+                
+                    <div class="col">
+                      <button class="btn" id="TeacherPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <img src="../Images/teacher.png"  alt="">
+                          <br>
+                        </button>
+                        <span style="margin-left:10px; font-size: 15px;">Teacher</span>
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="" style="width: 75px; height: 75px; padding:0;">
+                          <!-- <img src="../Images/graduates.png"  alt=""> -->
+                          <br>
+                        </button>
+                        <!-- <span style="margin-left:15px; font-size: 15px;">Student</span> -->
+                    </div>
+
+                    <div class="col">
+                      <button class="btn" id="ParentPageBtn" style="width: 75px; height: 75px; padding:0;">
+                          <!-- <img src="../Images/chat-bubble.png"  alt=""> -->
+                          <br>
+                        </button>
+                        <!-- <span style="margin-left:5px; font-size: 15px;">Message</span> -->
+                    </div>
+                  </div>
+
+                  <div class="row m-b20 g-3" style="position: relative; top: -30px;">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div id="Profile-Page" style="display: none; position: relative; top: 60px;">
+          <div class="page-content bottom-content">
+            <div class="dz-banner-heading">
+            <div class="overlay-black-light">
+            <img src="../Images/logo.png" class="bnr-img" alt="" />
+            </div>
+            </div>
+            <div class="container profile-area" style="border: none;">
+            <div class="profile" style="border: none;">
+            <div class="media media-100" style="border: none;">
+            <img src="../Images/profile.png" alt="/" />
+            </div>
+            <div class="mb-2">
+            <h4 class="mb-0" id="Name">Student Name</h4>
+            <span class="detail" id="Destination"></span>
+            <script>
+              let Name = document.getElementById("Name");
+              let Destination = document.getElementById("Destination");
+
+              Name.innerHTML = localStorage.getItem("Name");
+              Destination.innerHTML = localStorage.getItem("Destination")
+            </script>
+            </div>
+             </div>
+            <div class="mb-2">
+              <h4 class="mb-0">Personal Information</h4>
+              <table class="table rounded">
+          
+                <tbody>
+                  <tr>
+                    <td scope="col" >Name</td>
+                    <td scope="col" id="PersonalName"></td>
+                  </tr>
+                  <tr>
+                    <td scope="col">Destination</td>
+                    <td scope="col" id="PersonalDestination"></td>
+                  </tr>
+                  <script>
+                    let PersonalName = document.getElementById("PersonalName");
+                    let PersonalDestination = document.getElementById("PersonalDestination");
+      
+                    PersonalName.innerHTML = localStorage.getItem("Name");
+                    PersonalDestination.innerHTML = localStorage.getItem("Destination")
+                  </script>
+                </tbody>
+                </table>
+              </div>
+            </div>
+            </div>
+            
+        </div>
+      
+        <div id="Homework-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <!-- row -->
+            <div class="Buttons">
+              <button class="btn btn-success" style="width: 45%;" id="NewHomeworkPageBtn">New</button>
+              <button class="btn btn-danger" style="width: 45%;" id="PreviousHomeworkPageBtn">Previous</button>
+            </div>
+
+            <style>
+              .Buttons{
+                position: relative;
+                width: 100%;
+                top: -15px;
+                left:5px;
+                /* background-color: black; */
+                /* font-size: 25px; */
+              }
+
+              .Buttons .btn{
+                position: relative;
+                width: 45%;
+                font-size: 20px;
+              }
+
+
+              #PreviousHomeworkPageBtn{
+                left:5%;
+              }
+            </style>
+        
+            <div class="row" id="NewHomeworkPage" style="display: block;">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="title">Homework Fields</h5>
+                  </div>
+        
+                  <div class="card-body bg-primary rounded">
+                    <div class="basic-form style-1">
+                      <form>
+                        <div class="mb-3 form-input">
+                      
+                          <select name="" id="HomworkClass" class="form-control rounded">
+                            <option value="">Select Class</option>
+                            <option value="UKG">UKG</option>
+                            <option value="LKG">LKG</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="1ST">1ST</option>
+                            <option value="2ND">2ND</option>
+                            <option value="3RD">3RD</option>
+                            <option value="4TH">4TH</option>
+                            <option value="5TH">5TH</option>
+                            <option value="6TH">6TH</option>
+                            <option value="7TH">7TH</option>
+                            <option value="8TH">8TH</option>
+                            <option value="9TH">9TH</option>
+                            <option value="10TH">10TH</option>
+                            <option value="11TH">11TH</option>
+                            <option value="12TH">12TH</option>
+                          </select>
+                          
+                        </div>
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-user"></i>
+                          </span>
+        
+                          <input type="text" class="form-control rounded" placeholder="Subject Name" id="HomeworSubject"  />
+                        
+                        </div>
+          
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="text" class="form-control rounded" placeholder="Homework Details" id="HomeworkDetails" />
+                        </div>
+        
+                        <div class="border-top">
+                          <a href="#" id="AddHomeworkBtn" class="btn btn-secondary mt-3 btn-rounded btn-block">Add Homework</a>
+          
+                        </div>
+                      </form>
+                      <table class="table text-white my-2  rounded">
+                      <thead>
+                      <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Work</th>
+                      </tr>
+                      </thead>
+                      <tbody id="HomeworkTable">
+        
+                      </tbody>
+                      <tfoot>
+                      
+                      <tr>
+                      <td>
+                          <a href="#"  id="SubmitHomeworkBtn" class="btn btn-sm btn-danger">Final Submit</a>
+                      <td>
+                      </tr>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="conta" id="PreviousHomeworkPage" style="display: none;">
+              <select name="" id="PreviousHomeworkClass" class="form-control rounded my-2">
+                <option value="">Select Class</option>
+                <option value="UKG">UKG</option>
+                <option value="LKG">LKG</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="1ST">1ST</option>
+                <option value="2ND">2ND</option>
+                <option value="3RD">3RD</option>
+                <option value="4TH">4TH</option>
+                <option value="5TH">5TH</option>
+                <option value="6TH">6TH</option>
+                <option value="7TH">7TH</option>
+                <option value="8TH">8TH</option>
+                <option value="9TH">9TH</option>
+                <option value="10TH">10TH</option>
+                <option value="11TH">11TH</option>
+                <option value="12TH">12TH</option>
+              </select>
+               <h2 class="text-center">Previous Homework</h2>
+            </div>
+          </div>
+        </div>
+        <!-- Exam Page -->
+        <div id="Exam-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <!-- row -->
+            <div class="Buttons">
+              <button class="btn btn-success" style="width: 45%;" id="NewExamPageBtn">New</button>
+              <button class="btn btn-danger" style="width: 45%;" id="PreviousExamPageBtn">Previous</button>
+            </div>
+
+            <style>
+              .Buttons{
+                position: absolute;
+                width: 100%;
+                top: -15px;
+                left:5px;
+                /* background-color: black; */
+                /* font-size: 25px; */
+              }
+
+              .Buttons .btn{
+                position: relative;
+                width: 45%;
+                font-size: 20px;
+              }
+
+
+              #PreviousExamPageBtn{
+                left:5%;
+              }
+            </style>
+        
+        
+            <div class="row" id="NewExamPage" style="display: block;">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="title">Exam Fields</h5>
+                  </div>
+        
+                  <div class="card-body bg-primary rounded">
+                    <div class="basic-form style-1">
+                      <form>
+                        <div class="mb-3 form-input">
+                          <select name="" id="SelectExamClass" class="form-control rounded my-2">
+                            <option value="">Select Class</option>
+                            <option value="UKG">UKG</option>
+                            <option value="LKG">LKG</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="1ST">1ST</option>
+                            <option value="2ND">2ND</option>
+                            <option value="3RD">3RD</option>
+                            <option value="4TH">4TH</option>
+                            <option value="5TH">5TH</option>
+                            <option value="6TH">6TH</option>
+                            <option value="7TH">7TH</option>
+                            <option value="8TH">8TH</option>
+                            <option value="9TH">9TH</option>
+                            <option value="10TH">10TH</option>
+                            <option value="11TH">11TH</option>
+                            <option value="12TH">12TH</option>
+                          </select>
+                        </div>
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-user"></i>
+                          </span>
+        
+                          <input type="text" class="form-control rounded" placeholder="Exam Title" id="ExamTitle"  />
+                        
+                        </div>
+          
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="text" class="form-control rounded" placeholder="Exam Subject" id="ExamSubject" />
+                        </div>
+        
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="date" class="form-control rounded" placeholder="Exam Subject" id="ExamDate" />
+                        </div>
+                        <div class="border-top">
+                          <a href="#" id="AddExamBtn" class="btn btn-secondary mt-3 btn-rounded btn-block">Add Exam</a>
+          
+                        </div>
+                      </form>
+                      <table class="table text-white my-2  rounded">
+                      <thead>
+                      <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Date</th>
+                      </tr>
+                      </thead>
+                      <tbody id="ExamTable">
+        
+                      </tbody>
+                      <tfoot>
+                      
+                      <tr>
+                      <td>
+                          <a href="#"  id="SubmitExamBtn" class="btn btn-sm btn-danger">Final Submit</a>
+                      <td>
+                      </tr>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="PreviousExamPage" style="display: none;">
+              <h1 class="text-center">Previous Exam</h1>
+              <select name="" id="PreviousSelectExamClass" class="form-control rounded my-2">
+                <option value="">Select Class</option>
+                <option value="UKG">UKG</option>
+                <option value="LKG">LKG</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="1ST">1ST</option>
+                <option value="2ND">2ND</option>
+                <option value="3RD">3RD</option>
+                <option value="4TH">4TH</option>
+                <option value="5TH">5TH</option>
+                <option value="6TH">6TH</option>
+                <option value="7TH">7TH</option>
+                <option value="8TH">8TH</option>
+                <option value="9TH">9TH</option>
+                <option value="10TH">10TH</option>
+                <option value="11TH">11TH</option>
+                <option value="12TH">12TH</option>
+              </select>
+            </div>
+          </div>
+          
+        </div>
+
+        <div id="Result-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <!-- row -->
+            <div class="Buttons">
+              <button class="btn btn-success" id="NewResultPageBtn">New</button>
+              <button class="btn btn-warning" style="left:3%;" id="SchoolExamResultBtn">School</button>
+              <button class="btn btn-secondary" style="left:6%" id="ClassExamResultBtn">Class</button>
+           
+            </div>  
+
+            <style>
+              .Buttons{
+                position: relative;
+                width: 100%;
+                top: -15px;
+                left:5px;
+              }
+
+              .Buttons #NewResultPageBtn,#SchoolExamResultBtn,
+              #ClassExamResultBtn{
+                position: relative;
+                width: 30%;
+                font-size: 20px;
+              }
+
+            </style>
+        
+            <div class="row" id="NewResultPage" style="display: block;">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="title">Result Fields</h5>
+                  </div>
+        
+                  <div class="card-body bg-primary rounded">
+                    <div class="basic-form style-1">
+                      <form>
+                        <div class="mb-3 form-input">
+                          <select name="" id="ResultClass" class="form-control rounded my-2">
+                            <option value="">Select Class</option>
+                            <option value="UKG">UKG</option>
+                            <option value="LKG">LKG</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="1ST">1ST</option>
+                            <option value="2ND">2ND</option>
+                            <option value="3RD">3RD</option>
+                            <option value="4TH">4TH</option>
+                            <option value="5TH">5TH</option>
+                            <option value="6TH">6TH</option>
+                            <option value="7TH">7TH</option>
+                            <option value="8TH">8TH</option>
+                            <option value="9TH">9TH</option>
+                            <option value="10TH">10TH</option>
+                            <option value="11TH">11TH</option>
+                            <option value="12TH">12TH</option>
+                          </select>
+                                      </div>
+                        <div style="display: flex;">
+                         
+                        <div class="mb-3 form-input" >
+                          <select name=""  style="width: 95%;" id="SelectResultExam" class="form-control rounded">
+                            <option value="">Select Exam</option>
+                            <option value="SchoolExam">School Exam</option>
+                            <option value="ClassExam">Class Exam</option>
+                          </select>
+                        </div>
+                        
+                        <div class="mb-3 form-input" >
+                           <select name="" style="width: 95%; margin-left: 5%;"  id="SelectResultStudent" class="form-control rounded">
+                             <option value="">Select Student</option>
+                           </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 form-input">
+                        <span class="input-icon">
+                          <i class="fa fa-oil-can"></i>
+                        </span>
+      
+                        <input type="text" class="form-control rounded" placeholder="Result title like- monthly exam" id="ResultTitle" />
+                      </div>
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="text" class="form-control rounded" placeholder="Subject Name" id="ResultSubject" />
+                        </div>
+
+                        <div style="display: flex;">
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="tel" style="width: 95%;" class="form-control rounded" placeholder="Total Marks" id="ExamTotalMarks" />
+                        </div>
+
+                        
+                        <div class="mb-3 form-input">
+                          <span class="input-icon">
+                            <i class="fa fa-oil-can"></i>
+                          </span>
+        
+                          <input type="tel" style="width: 95%; margin-left: 5%;" class="form-control rounded" placeholder="Obtain Marks" id="ExamObtainMarks" />
+                        </div>
+                        </div>
+                        <div class="border-top">
+                          <a href="#" id="AddResultBtn" class="btn btn-secondary mt-3 btn-rounded btn-block">Add Result</a>
+          
+                        </div>
+                      </form>
+                      <table class="table text-white my-2  rounded">
+                      <thead>
+                      <tr>
+                      <th scope="col">Subject</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Obtain</th>
+                      </tr>
+                      </thead>
+                      <tbody id="ResultTable">
+        
+                      </tbody>
+                      <tfoot>
+                      
+                      <tr>
+                      <td>
+                          <a href="#"  id="SubmitResultBtn" class="btn btn-sm btn-danger">Final Submit</a>
+                      <td>
+                      </tr>
+                      </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="PreviousSchoolExamResult" style="display: none; ">
+              <!-- row -->
+              <div>
+                <select name="" id="SchoolResultClass" class="form-control rounded my-2">
+                  <option value="">Select Class</option>
+                  <option value="UKG">UKG</option>
+                  <option value="LKG">LKG</option>
+                  <option value="NURSERY">NURSERY</option>
+                  <option value="1ST">1ST</option>
+                  <option value="2ND">2ND</option>
+                  <option value="3RD">3RD</option>
+                  <option value="4TH">4TH</option>
+                  <option value="5TH">5TH</option>
+                  <option value="6TH">6TH</option>
+                  <option value="7TH">7TH</option>
+                  <option value="8TH">8TH</option>
+                  <option value="9TH">9TH</option>
+                  <option value="10TH">10TH</option>
+                  <option value="11TH">11TH</option>
+                  <option value="12TH">12TH</option>
+                </select>
+              </div>
+              <div>
+                <select name="" id="SelectPreviousResultExamStudent" class="form-control rounded">
+                  <option value="">Select Student</option>
+                </select>
+              </div>
+               <div class="my-2" id="ViewPreviousSchoolResult">
+               
+                 <h1 class="text-center">School Exam Result</h1>
+               </div>
+              </div>
+
+              <div id="PreviousClassTestResult" style="display: none; ">
+                <!-- row -->
+                <div>
+                  <select name="" id="ClassResultClass" class="form-control rounded my-2">
+                    <option value="">Select Class</option>
+                    <option value="UKG">UKG</option>
+                    <option value="LKG">LKG</option>
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="1ST">1ST</option>
+                    <option value="2ND">2ND</option>
+                    <option value="3RD">3RD</option>
+                    <option value="4TH">4TH</option>
+                    <option value="5TH">5TH</option>
+                    <option value="6TH">6TH</option>
+                    <option value="7TH">7TH</option>
+                    <option value="8TH">8TH</option>
+                    <option value="9TH">9TH</option>
+                    <option value="10TH">10TH</option>
+                    <option value="11TH">11TH</option>
+                    <option value="12TH">12TH</option>
+                  </select>
+                </div>
+                <div>
+                  <select name="" id="SelectPreviousResultTestStudent" class="form-control rounded">
+                    <option value="">Select Student</option>
+                  </select>
+                </div>
+                 <div class="my-2" id="ViewPreviousClassResult">
+                   <h1 class="text-center">Class Test Result</h1>
+                 </div>
+                </div>
+              
+            
+          </div>
+          
+        </div>
+
+        <div id="Attendance-Page" style="display: none; position: relative; top: 60px;">
+          <!-- <button class="btn btn-danger" id="ClearHistoryBtn" >Clear History</button> -->
+          <div id="PreviousAttendancePageBtn" class="bg-success rounded text-white text-center"> New </div>
+          <div id="NewAttendancePageBtn" class="bg-danger rounded text-white text-center"> Previous </div>
+          <style type="text/css">
+          
+          #NewAttendancePageBtn,
+          #PreviousAttendancePageBtn,
+          #EraseData{
+          position: absolute;
+          top:0%;
+          right:2.5%;
+          width:45%; 
+          height: 50px;
+          font-size:20px;
+          line-height:50px;
+          }
+          
+          #ClearHistoryBtn{
+            position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+          }
+
+          #EraseData{
+            top: 60px;
+            width:95%;
+            font-size:20px;
+          }
+          
+          #PreviousAttendancePageBtn {
+          left:2.5%; 
+          }
+          
+          </style>         
+          <div class="container fb" id="NewAttendancePage" style="display: block;">
+            <!-- row -->
+            <div class="row">
+            <div class="col-12">
+            <div class="card" style="margin-top: 50px;">
+            <div class="card-header">
+            <h5 class="card-title">Attendance Record</h5>
+            </div>
+            <div>
+              <select name="" id="AttendanceClass" class="form-control rounded my-2">
+                <option value="">Select Class</option>
+                <option value="UKG">UKG</option>
+                <option value="LKG">LKG</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="1ST">1ST</option>
+                <option value="2ND">2ND</option>
+                <option value="3RD">3RD</option>
+                <option value="4TH">4TH</option>
+                <option value="5TH">5TH</option>
+                <option value="6TH">6TH</option>
+                <option value="7TH">7TH</option>
+                <option value="8TH">8TH</option>
+                <option value="9TH">9TH</option>
+                <option value="10TH">10TH</option>
+                <option value="11TH">11TH</option>
+                <option value="12TH">12TH</option>
+              </select>
+            </div>
+            <div class="card-body py-2">
+            <div class="dz-list">
+            <ul id="AttendanceList"></ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="container fb" id="PreviousAttendancePage" style="display: none;">
+              <!-- row -->
+              <div class="row">
+              <div class="col-12">
+              <div class="card" style="margin-top: 50px;">
+              <div class="card-header">
+              <h5 class="card-title">Previous Attendance Record</h5>
+              </div>
+              <div>
+                <select name="" id="PreviousAttendanceClass" class="form-control rounded my-2">
+                  <option value="">Select Class</option>
+                  <option value="UKG">UKG</option>
+                  <option value="LKG">LKG</option>
+                  <option value="NURSERY">NURSERY</option>
+                  <option value="1ST">1ST</option>
+                  <option value="2ND">2ND</option>
+                  <option value="3RD">3RD</option>
+                  <option value="4TH">4TH</option>
+                  <option value="5TH">5TH</option>
+                  <option value="6TH">6TH</option>
+                  <option value="7TH">7TH</option>
+                  <option value="8TH">8TH</option>
+                  <option value="9TH">9TH</option>
+                  <option value="10TH">10TH</option>
+                  <option value="11TH">11TH</option>
+                  <option value="12TH">12TH</option>
+                </select>
+              </div>
+              <div class="card-body py-2">
+                <select id="SelectPreviousAttendance" class="form-control rounded">
+                  <option value="">Select Student</option>
+                </select>
+              <div class="dz-list">
+              <ul id="PreviousAttendanceList"></ul>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+            
+        </div>
+
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" style="display: none;" aria-modal="true" role="dialog">
+          <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title">Message Field</h5>
+          <button class="btn-close" data-bs-dismiss="modal">
+          <i class="fa-solid fa-xmark"></i>
+          </button>
+          </div>
+          <div class="modal-body">
+          <div class="card">
+          <div class="card-body">
+          <div class="basic-form style-1">
+          <form>
+          <div class="mb-3 form-input">
+          <span class="input-icon">
+          <i class="fa fa-user"></i>
+          </span>
+          <input type="text" class="form-control" placeholder="Message Title"  id="MessageTitle" />
+          </div>
+          
+          <div class="mb-3">
+          <textarea class="form-control" placeholder="Discription" id="MessageDisc"></textarea>
+          </div>
+          
+          <div class="border-top">
+          <a href="javascript:void(0);" id="AddMessageBtn" class="btn btn-secondary mt-3 btn-rounded btn-block">Create</a>
+          </div>
+          </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-danger light" data-bs-dismiss="modal">Close</button>
+          </div>
+          </div>
+          </div>
+          </div>
+          
+
+        <div id="Notice-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container">
+            <button type="button" class="btn w-100 btn-primary mb-2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">New Message</button>
+            <div class="notification-content" id="NotificationSection">
+              <h2 class="text-center">Recent Messages</h2>
+            </div>
+            </div>
+        </div>
+
+        <div id="Routine-Page" style="display: none; position: relative; top: 60px;">
+          <div class="container fb">
+            <!-- row -->
+            <div class="Buttons">
+              <button class="btn btn-success" style="width: 45%;" id="NewRoutinePageBtn">New</button>
+              <button class="btn btn-danger" style="width: 45%;" id="PreviousRoutinePageBtn">Previous</button>
+            </div>
+
+            <style>
+              .Buttons{
+                position: relative;
+                width: 100%;
+                top: -15px;
+                left:5px;
+                /* background-color: black; */
+                /* font-size: 25px; */
+              }
+
+              .Buttons .btn{
+                position: relative;
+                width: 45%;
+                font-size: 20px;
+              }
+
+
+              #PreviousRoutinePageBtn{
+                left:5%;
+              }
+            </style>
+        
+        <div class="row" id="NewRoutinePage" style="display: block;">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Routine Fields</h5>
+              </div>
+    
+              <div class="card-body bg-primary rounded">
+                <div class="basic-form style-1">
+                  <form>
+                    <div class="mb-3 form-input">
+                  
+                      <select name="" id="RoutineClass" class="form-control rounded">
+                        <option value="">Select Class</option>
+                        <option value="UKG">UKG</option>
+                        <option value="LKG">LKG</option>
+                        <option value="NURSERY">NURSERY</option>
+                        <option value="1ST">1ST</option>
+                        <option value="2ND">2ND</option>
+                        <option value="3RD">3RD</option>
+                        <option value="4TH">4TH</option>
+                        <option value="5TH">5TH</option>
+                        <option value="6TH">6TH</option>
+                        <option value="7TH">7TH</option>
+                        <option value="8TH">8TH</option>
+                        <option value="9TH">9TH</option>
+                        <option value="10TH">10TH</option>
+                        <option value="11TH">11TH</option>
+                        <option value="12TH">12TH</option>
+                      </select>
+                      
+                    </div>
+                    <div class="mb-3 form-input">
+                      <span class="input-icon">
+                        <i class="fa fa-user"></i>
+                      </span>
+    
+                      <input type="text" class="form-control rounded" placeholder="Subject Name" id="RoutineSubject"  />
+                    
+                    </div>
+      
+                    <div class="mb-3 form-input" style="display: flex;">
+                      <input type="time" class="form-control rounded" id="RoutineStartTime"  />
+                      <input type="time" class="form-control rounded mx-2" id="RoutineEndTime"  />
+                    
+                    </div>
+    
+                    <div class="border-top">
+                      <a href="#" id="AddRoutineBtn" class="btn btn-secondary mt-3 btn-rounded btn-block">Add Routine</a>
+      
+                    </div>
+                  </form>
+                  <table class="table text-white my-2  rounded">
+                  <thead>
+                  <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Start</th>
+                  <th scope="col">End</th>
+                  </tr>
+                  </thead>
+                  <tbody id="RoutineTable">
+    
+                  </tbody>
+                  <tfoot>
+                  
+                  <tr>
+                  <td>
+                      <a href="#"  id="SubmitRoutineBtn" class="btn btn-sm btn-danger">Final Submit</a>
+                  <td>
+                  </tr>
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="conta" id="PreviousRoutinePage" style="display: none;">
+          <select name="" id="PreviousRoutineClass" class="form-control rounded my-2">
+            <option value="">Select Class</option>
+            <option value="UKG">UKG</option>
+            <option value="LKG">LKG</option>
+            <option value="NURSERY">NURSERY</option>
+            <option value="1ST">1ST</option>
+            <option value="2ND">2ND</option>
+            <option value="3RD">3RD</option>
+            <option value="4TH">4TH</option>
+            <option value="5TH">5TH</option>
+            <option value="6TH">6TH</option>
+            <option value="7TH">7TH</option>
+            <option value="8TH">8TH</option>
+            <option value="9TH">9TH</option>
+            <option value="10TH">10TH</option>
+            <option value="11TH">11TH</option>
+            <option value="12TH">12TH</option>
+          </select>
+           <h2 class="text-center">Previous Routine</h2>
+           <div id="PreviousRoutineSection"></div>
+        </div>
+           
+          </div>
+        </div>
+
+        <div id="Student-Page" style="display: none; position: relative; top: 60px;">
+          <!-- <button class="btn btn-danger" id="ClearHistoryBtn" >Clear History</button> -->
+          <div id="NewStudentPageBtn" class="bg-success rounded text-white text-center"> New </div>
+          <div id="ClassListPageBtn" class="bg-danger rounded text-white text-center"> Student List </div>
+          <style type="text/css">
+          
+          #NewStudentPageBtn,
+          #ClassListPageBtn,
+          #EraseData{
+          position: absolute;
+          top:0%;
+          right:2.5%;
+          width:45%; 
+          height: 50px;
+          font-size:20px;
+          line-height:50px;
+          }
+          
+          #ClearHistoryBtn{
+            position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+          }
+
+          #EraseData{
+            top: 60px;
+            width:95%;
+            font-size:20px;
+          }
+          
+          #NewStudentPageBtn {
+          left:2.5%; 
+          }
+          
+          </style>         
+          <div class="container fb" id="StudentListPage" style="display: none;">
+            <!-- row -->
+            <div class="row">
+            <div class="col-12">
+            <div class="card" style="margin-top: 50px;">
+            <div class="card-header">
+            <h5 class="card-title">Student Record</h5>
+            </div>
+            <div>
+              <select name="" id="SelectClassListStudent" class="form-control rounded my-2">
+                <option value="">Select Class</option>
+                <option value="UKG">UKG</option>
+                <option value="LKG">LKG</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="1ST">1ST</option>
+                <option value="2ND">2ND</option>
+                <option value="3RD">3RD</option>
+                <option value="4TH">4TH</option>
+                <option value="5TH">5TH</option>
+                <option value="6TH">6TH</option>
+                <option value="7TH">7TH</option>
+                <option value="8TH">8TH</option>
+                <option value="9TH">9TH</option>
+                <option value="10TH">10TH</option>
+                <option value="11TH">11TH</option>
+                <option value="12TH">12TH</option>
+              </select>
+            </div>
+            <div class="card-body py-2">
+              <div class="list item-list recent-jobs-list">
+                <ul id="StudentListSection">
+               
+                    
+                </ul>
+                </div>
+                
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="container fb" id="NewAddmissionPage" style="display: block; " >
+              <!-- row -->
+              <div class="col-12" style="margin-top: 50px;">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="title">New Addmission Fields</h5>
+                  </div>
+        
+                  <div class="card-body bg-primary rounded">
+                    <div class="basic-form style-1">
+                      <form>
+                        <h2 class="text-center text-white">Personal Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control rounded" placeholder="First Name" id="NewStudentFirstName" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control rounded my-2" placeholder="Last Name" id="NewStudentLastName" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="date" class="form-control rounded my-2" placeholder="DOB" id="NewDOB" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                          <select name="" class="form-control rounded my-2" id="NewClass">
+                            <option value="">Select Class</option>
+                            <option value="UKG">UKG</option>
+                            <option value="LKG">LKG</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="1ST">1ST</option>
+                            <option value="2ND">2ND</option>
+                            <option value="3RD">3RD</option>
+                            <option value="4TH">4TH</option>
+                            <option value="5TH">5TH</option>
+                            <option value="6TH">6TH</option>
+                            <option value="7TH">7TH</option>
+                            <option value="8TH">8TH</option>
+                            <option value="9TH">9TH</option>
+                            <option value="10TH">10TH</option>
+                            <option value="11TH">11TH</option>
+                            <option value="12TH">12TH</option>
+                          </select></div>
+                      </div>
+                      
+                        <h2 class="text-center text-white">Parent Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Mobile Number" id="NewMobile" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Father Name" id="NewFather" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control my-2" placeholder="Mother Name" id="NewMother" aria-label="Last name">
+                          </div>
+                    
+
+                        <h2 class="text-center text-white">Fee Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Total Fee" id="NewTotal" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Submited Fee" id="NewSubmited" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control my-2" placeholder="Panding Fee" id="NewPanding" aria-label="Last name">
+                          </div>
+                     
+                    
+                      </form>
+                      <div class="container">
+                        <button class="btn btn-danger my-2" id="AddNewStudentBtn">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         </div>    
+        </div>
+
+        <div id="Teacher-Page" style="display: none; position: relative; top: 60px;">
+          <!-- <button class="btn btn-danger" id="ClearHistoryBtn" >Clear History</button> -->
+          <div id="NewTeacherPageBtn" class="bg-success rounded text-white text-center"> New </div>
+          <div id="TeacherListPageBtn" class="bg-danger rounded text-white text-center"> Teacher List </div>
+          <style type="text/css">
+          
+          #NewTeacherPageBtn,
+          #TeacherListPageBtn,
+          #EraseData{
+          position: absolute;
+          top:0%;
+          right:2.5%;
+          width:45%; 
+          height: 50px;
+          font-size:20px;
+          line-height:50px;
+          }
+          
+          #ClearHistoryBtn{
+            position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+          }
+
+          #EraseData{
+            top: 60px;
+            width:95%;
+            font-size:20px;
+          }
+          
+          #NewTeacherPageBtn {
+          left:2.5%; 
+          }
+          
+          </style>         
+          <div class="container fb" id="TeacherListPage" style="display: block;">
+            <!-- row -->
+            <div class="row">
+            <div class="col-12">
+            <div class="card" style="margin-top: 50px;">
+            <div class="card-header">
+            <h5 class="card-title">Teacher Record</h5>
+            </div>
+          
+            <div class="card-body py-2">
+              <div class="list item-list recent-jobs-list">
+                <ul id="TeacherListSection">
+               
+                    
+                </ul>
+                </div>
+                
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="container fb" id="NewTeacherPage" style="display: none; " >
+              <!-- row -->
+              <div class="col-12" style="margin-top: 50px;">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="title">New Teacher Fields</h5>
+                  </div>
+        
+                  <div class="card-body bg-primary rounded">
+                    <div class="basic-form style-1">
+                      <form>
+                        <h2 class="text-center text-white">Personal Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control rounded" placeholder="First Name" id="NewTeacherFirstName" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control rounded my-2" placeholder="Last Name" id="NewTeacherLastName" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="date" class="form-control rounded my-2" placeholder="DOB" id="NewTeacherDOB" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                          <select name="" class="form-control rounded my-2" id="NewTeacherClass">
+                            <option value="">Select Class</option>
+                            <option value="UKG">UKG</option>
+                            <option value="LKG">LKG</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="1ST">1ST</option>
+                            <option value="2ND">2ND</option>
+                            <option value="3RD">3RD</option>
+                            <option value="4TH">4TH</option>
+                            <option value="5TH">5TH</option>
+                            <option value="6TH">6TH</option>
+                            <option value="7TH">7TH</option>
+                            <option value="8TH">8TH</option>
+                            <option value="9TH">9TH</option>
+                            <option value="10TH">10TH</option>
+                            <option value="11TH">11TH</option>
+                            <option value="12TH">12TH</option>
+                          </select></div>
+                      </div>
+                      
+                        <h2 class="text-center text-white">Parent Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Mobile Number" id="NewTeacherMobile" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Father Name" id="NewTeacherFather" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control my-2" placeholder="Mother Name" id="NewTeacherMother" aria-label="Last name">
+                          </div>
+                    
+
+                        <h2 class="text-center text-white">Salery Information</h2>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Total Salery" id="NewSaleryTotal" aria-label="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control my-2" placeholder="Recived Salery" id="NewSaleryRecived" aria-label="Last name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control my-2" placeholder="Panding Salery" id="NewSaleryPanding" aria-label="Last name">
+                          </div>
+                     
+                    
+                      </form>
+                      <div class="container">
+                        <button class="btn btn-danger my-2" id="AddNewTeacherBtn">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+         </div>    
+        </div>
+        <div id="Gallery-Page" style="display: none; position: relative; top: 60px;">
+          <!-- <div class="container fb">
+            <div class="card">
+            <div class="card-header">
+            <h4 class="card-title">Light Gallery</h4>
+            </div>
+            <div class="card-body">
+            <div class="dz-lightgallery row g-3" id="lightgallery">
+            <a class="col-6" href="../Images/salary.png" data-lg-id="7b61586d-7cb0-4b96-9ab7-5bc8839fe8c9">
+            <img src="../Images/salary.png" alt="image" />
+            </a>
+            <a class="col-6" href="../Images/salary.png" data-lg-id="7b61586d-7cb0-4b96-9ab7-5bc8839fe8c9">
+              <img src="../Images/salary.png" alt="image" />
+              </a>
+              <a class="col-6" href="../Images/salary.png" data-lg-id="7b61586d-7cb0-4b96-9ab7-5bc8839fe8c9">
+                <img src="../Images/salary.png" alt="image" />
+                </a>
+            </div>
+            </div>
+            </div>
+            </div> -->
+              <h2 class="text-center">Page is Coming Soon..</h2>
+          
+        </div>
+        
+        
+      </div>
+
+      <!-- Page Content End-->
+
+      <!-- Menubar -->
+
+      <div class="menubar-area" id="BottomBar">
+        <div class="toolbar-inner menubar-nav">
+          <a href="#" class="nav-link active" id="HomePageBtn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9.14373 20.7821V17.7152C9.14372 16.9381 9.77567 16.3067 10.5584 16.3018H13.4326C14.2189 16.3018 14.8563 16.9346 14.8563 17.7152V20.7732C14.8562 21.4473 15.404 21.9951 16.0829 22H18.0438C18.9596 22.0023 19.8388 21.6428 20.4872 21.0007C21.1356 20.3586 21.5 19.4868 21.5 18.5775V9.86585C21.5 9.13139 21.1721 8.43471 20.6046 7.9635L13.943 2.67427C12.7785 1.74912 11.1154 1.77901 9.98539 2.74538L3.46701 7.9635C2.87274 8.42082 2.51755 9.11956 2.5 9.86585V18.5686C2.5 20.4637 4.04738 22 5.95617 22H7.87229C8.19917 22.0023 8.51349 21.8751 8.74547 21.6464C8.97746 21.4178 9.10793 21.1067 9.10792 20.7821H9.14373Z"
+                fill="#130F26"
+              />
+            </svg>
+          </a>
+
+          <a href="#" class="nav-link" id="BottomHomeworkPageBtn">
+            <svg xmlns="http://www.w3.org/2000/svg"   height="22" width="22" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#a19fa8" d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"  fill="#130F26"/></svg>         
+           
+          </a>
+
+          <a href="#" class="nav-link" id="BottomMessagePageBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22"  viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path  fill="#a19fa8"  d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/></svg>          </a>
+
+          <a href="javascript:void(0);" class="menu-toggler">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                opacity="0.4"
+                d="M16.0755 2H19.4615C20.8637 2 22 3.14585 22 4.55996V7.97452C22 9.38864 20.8637 10.5345 19.4615 10.5345H16.0755C14.6732 10.5345 13.537 9.38864 13.537 7.97452V4.55996C13.537 3.14585 14.6732 2 16.0755 2Z"
+                fill="#a19fa8"
+              />
+
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.53852 2H7.92449C9.32676 2 10.463 3.14585 10.463 4.55996V7.97452C10.463 9.38864 9.32676 10.5345 7.92449 10.5345H4.53852C3.13626 10.5345 2 9.38864 2 7.97452V4.55996C2 3.14585 3.13626 2 4.53852 2ZM4.53852 13.4655H7.92449C9.32676 13.4655 10.463 14.6114 10.463 16.0255V19.44C10.463 20.8532 9.32676 22 7.92449 22H4.53852C3.13626 22 2 20.8532 2 19.44V16.0255C2 14.6114 3.13626 13.4655 4.53852 13.4655ZM19.4615 13.4655H16.0755C14.6732 13.4655 13.537 14.6114 13.537 16.0255V19.44C13.537 20.8532 14.6732 22 16.0755 22H19.4615C20.8637 22 22 20.8532 22 19.44V16.0255C22 14.6114 20.8637 13.4655 19.4615 13.4655Z"
+                fill="#a19fa8"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Menubar -->
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+    <script src="../assets/js/jquery.js"></script>
+
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets/js/settings.js"></script>
+
+    <script src="../assets/js/custom.js"></script>
+
+    <!-- Swiper -->
+
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Swiper -->
+
+    <script src="pages.js"></script>
+  </body>
+</html>
