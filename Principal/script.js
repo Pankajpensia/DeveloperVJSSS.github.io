@@ -227,7 +227,7 @@ AddNewTeacherBtn.addEventListener('click', async function(){
     let NewSaleryRecived = document.getElementById("NewSaleryRecived").value;
     let NewSaleryPanding = document.getElementById("NewSaleryPanding").value;
 
-    try {
+    try {   
         let CurrentUserID
           // Assuming you have the 'auth' and 'database' objects defined elsewhere
           await createUserWithEmailAndPassword(auth, "Teacher" + "_" + NewTeacherFirstName + NewTeacherLastName + NewTeacherDOB.replace(/-/g, "") + "@gmail.com", NewTeacherDOB.replace(/-/g, ""));
@@ -273,6 +273,7 @@ document.getElementById("NewSaleryPanding").value = "";
       
           
         } catch(error){
+            let CurrentUserID;
             const PersonalData = push(ref(database, `School/Teacher/${NewTeacherFirstName + NewTeacherLastName + NewTeacherDOB.replace(/-/g, "")}/Personal`));
             const ClassData = push(ref(database, `School/TeacherList`));
                CurrentUserID = ClassData.key
@@ -969,18 +970,80 @@ async function absentFunction(docRef, listItem) {
 
 
 // Add Homework Section
+let FromClassValue;
+let ToClassValue;
+let FromClass = document.querySelector("#FromClass");
+let ToClass = document.querySelector("#ToClass");
+
+ToClass.addEventListener('change', function(){
+    ToClassValue = ToClass.value;
+})
+
+let CurrentStudentList = document.querySelector("#CurrentStudentList");
+
+FromClass.addEventListener("change", function(){
+    FromClassValue = FromClass.value;
+onValue(ref(database, `/School/Class/${FromClass.value}/StudentList`), (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+const key = childSnapshot.key;
+    CurrentStudentList.innerHTML += ` <li>
+    <div class="item-content">
+    <a href="#" class="item-media"><img src="../assets/images/images.png" alt="logo" width="55" /></a>
+    
+    <div class="item-inner">
+    <div class="item-title-row">
+    <h6 class="item-title"><a href="#">Name:- ${childData.Name}</a></h6>
+    <h5 class="item-title"><a href="#">Father:- ${childData.FatherName}</a></h5>
+    <h5 class="item-title"><a class="text-success" href="#">Mobile:- ${childData.Mobile}</a></h5>
+    </div>
+    </div>
+    </div>
+   
+    
+    <div class="sortable-handler"></div>
+    </li>`
+})
+})
+
+})
+
+TransferBtn.addEventListener('click', function(){
+onValue(ref(database, `School/Class/${FromClassValue}/StudentList`), async (snapshot) => {
+  snapshot.forEach(async (childSnapshot) => {
+    var key = childSnapshot.key;
+    var data = childSnapshot.val();
+
+    console.log("Copying data with key:", key);
+
+    try {
+      // Copy data to the new location
+      await set(ref(database, `School/Class/${ToClassValue}/StudentList`), data);
+
+      // Remove the copied node from the old location
+      await remove(ref(database, `School/Class/${FromClassValue}/StudentList${key}`));
+
+      alert("Data Transfer Seccessfully");
+    } catch (error) {
+      console.error("Error copying data:", error);
+    }
+  });
+});
+})
+
+
+
+
 
 let PreviousHomeworkPage = document.getElementById("PreviousHomeworkPage")
 let PreviousHomeworkClass = document.getElementById("PreviousHomeworkClass");
 
 PreviousHomeworkClass.addEventListener('change', function(){
 
-
 onValue(ref(database, `/School/Class/${PreviousHomeworkClass.value}/Homework`), (snapshot) => {
     snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
 const key = childSnapshot.key;
-
 
     // If homework data is present
     PreviousHomeworkPage.innerHTML += `
@@ -1013,7 +1076,6 @@ const key = childSnapshot.key;
             </div>
         </div>
     `;
-
 
         // console.log(childData);
         const DeleteHomeworkBtn = document.querySelectorAll(".deleteHomework");
