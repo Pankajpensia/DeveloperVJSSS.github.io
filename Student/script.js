@@ -148,7 +148,7 @@ auth.onAuthStateChanged((user) => {
 	else {
 	
 	mainPage.style.display = "none";
-	BottomBar.style.dis
+	BottomBar.style.display = "none";
 	loginPage.style.display = "block";
 	}
 	});
