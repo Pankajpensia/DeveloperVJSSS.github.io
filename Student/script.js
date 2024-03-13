@@ -165,71 +165,92 @@ auth.onAuthStateChanged((user) => {
 	
 
 
-
-let HomeworkSection = document.getElementById("HomeworkSection")
-onValue(ref(database, `/School/Class/${localStorage.getItem("Class")}/Homework`), (snapshot) => {
-snapshot.forEach((childSnapshot) => {
-  const childData = childSnapshot.val();
-  HomeworkSection.innerHTML += `
-  <div class="row">
-      <div class="col-12">
-          <div class="card">
-              <div class="card-header border-0 pb-0">
-                  <h5 class="card-title">Daily Homework</h5>
-              </div>
-              <div class="card-body">
-                  <p class="card-text">
-                      <table class="table rounded" >
-                          <thead>
-                              <tr>
-                                  <th scope="col">Subject</th>
-                                  <th scope="col">Work</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              ${childData.Homework}      
-                          </tbody>
-                      </table>
-                  </p>
-              </div>
-              <div class="card-footer border-0 pt-0">
-                  <p class="card-text d-inline">${childData.Date}</p>
+    let HomeworkSection = document.getElementById("HomeworkSection");
+    let classId = localStorage.getItem("Class");
+    
+    onValue(ref(database, `/School/Class/${classId}/Homework`), (snapshot) => {
+        // Initialize an array to store the HTML for new items
+        let newItemsHTML = '';
+    
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+    
+            // If homework data is present
+            const newItemHTML = `
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header border-0 pb-0">
+                                <h5 class="card-title">Daily Homework</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <table class="table rounded" >
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject</th>
+                                                <th scope="col">Work</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${childData.Homework}      
+                                        </tbody>
+                                    </table>
+                                </p>
+                            </div>
+                            <div class="card-footer border-0 pt-0">
+                                <p class="card-text d-inline">${childData.Date}</p>
+                            </div>
+                        </div>
                     </div>
-          </div>
-      </div>
-  </div>
-  `
+                </div>
+            `;
+    
+            // Prepend new item HTML to the array
+            newItemsHTML = newItemHTML + newItemsHTML;
+        });
+    
+        // Add new homework HTML at the beginning of HomeworkSection
+        HomeworkSection.innerHTML = newItemsHTML + HomeworkSection.innerHTML;
+    });
 
-});
-});
+    
+    let MessageSection = document.getElementById("MessageSection");
 
-
-let MessageSection = document.getElementById("MessageSection")
-onValue(ref(database, `/School/Message`), (snapshot) => {
-snapshot.forEach((childSnapshot) => {
-  const childData = childSnapshot.val();
-  MessageSection.innerHTML += `
-  <a href="#">
-  <div class="notification active">
-  <h6>${childData.Title}</h6>
-  <p>${childData.Disc}</p>
-  <div class="notification-footer">
-  <span>
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-  <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
-  </svg>
-    ${childData.Date}
-  </span>
- 
-  </div>
-  </div>
-  </a>
-  `
-
-});
-});
-
+    onValue(ref(database, `/School/Message`), (snapshot) => {
+        // Initialize an array to store the HTML for new items
+        let newItemsHTML = '';
+    
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+    
+            // If message data is present
+            const newItemHTML = `
+                <a href="#">
+                    <div class="notification active">
+                        <h6>${childData.Title}</h6>
+                        <p>${childData.Disc}</p>
+                        <div class="notification-footer">
+                            <span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 11C8.76142 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11Z" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M6 3V6L8 7" stroke="#787878" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                ${childData.Date}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            `;
+    
+            // Prepend new item HTML to the array
+            newItemsHTML = newItemHTML + newItemsHTML;
+        });
+    
+        // Add new message HTML at the beginning of MessageSection
+        MessageSection.innerHTML = newItemsHTML + MessageSection.innerHTML;
+    });
+    
 let RoutineSection = document.getElementById("RoutineSection")
 onValue(ref(database, `/School/Class/${localStorage.getItem("Class")}/Routine`), (snapshot) => {
 snapshot.forEach((childSnapshot) => {
