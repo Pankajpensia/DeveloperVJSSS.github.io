@@ -2,7 +2,7 @@
 // var Offlinetable = document.getElementById("Offlinetodo");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword , createUserWithEmailAndPassword, deleteUser} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { getDatabase, ref, push, set, onValue, remove, update } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+import { getDatabase, ref, push, set, onValue, remove, update, onChildAdded } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
 
 const firebaseConfig = {
 apiKey: "AIzaSyBPDI-iW7_dqn2JBDjdLwC4BDTjUlBL778",
@@ -74,8 +74,9 @@ let BottomBar = document.querySelector("#BottomBar")
 let loginPage = document.querySelector("#Login-Page")
 auth.onAuthStateChanged((user) => {
 	if (user) {
-	BottomBar.style.display = "block";
+	
 	mainPage.style.display = "block";
+    BottomBar.style.display = "block"
 	username.innerHTML = localStorage.getItem("Name")
 	loginPage.style.display = "none";
 	}
@@ -227,7 +228,7 @@ AddNewTeacherBtn.addEventListener('click', async function(){
     let NewSaleryRecived = document.getElementById("NewSaleryRecived").value;
     let NewSaleryPanding = document.getElementById("NewSaleryPanding").value;
 
-    try {   
+    try {
         let CurrentUserID
           // Assuming you have the 'auth' and 'database' objects defined elsewhere
           await createUserWithEmailAndPassword(auth, "Teacher" + "_" + NewTeacherFirstName + NewTeacherLastName + NewTeacherDOB.replace(/-/g, "") + "@gmail.com", NewTeacherDOB.replace(/-/g, ""));
@@ -273,7 +274,6 @@ document.getElementById("NewSaleryPanding").value = "";
       
           
         } catch(error){
-            let CurrentUserID;
             const PersonalData = push(ref(database, `School/Teacher/${NewTeacherFirstName + NewTeacherLastName + NewTeacherDOB.replace(/-/g, "")}/Personal`));
             const ClassData = push(ref(database, `School/TeacherList`));
                CurrentUserID = ClassData.key
@@ -384,66 +384,66 @@ async function DeleteAttendanceFunction(docRef) {
     }
     }
 
-    let ViewPreviousSchoolResult = document.getElementById("ViewPreviousSchoolResult")
-    SelectPreviousResultExamStudent.addEventListener('change', function(){
-        console.log(SelectPreviousResultExamStudent.value)
-     onValue(ref(database, `/School/Student/${SelectPreviousResultExamStudent.value}/Result/SchoolExam`), (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
+    SelectPreviousResultExamStudent.addEventListener('change', function() {
+        let studentId = SelectPreviousResultExamStudent.value;
+    
+        let ViewPreviousSchoolResult = document.getElementById("ViewPreviousSchoolResultSection");
+        ViewPreviousSchoolResult.innerHTML = ''; // Clear previous content before adding new exam results
+    
+        // Attach event listener to the database reference for the selected student
+        onChildAdded(ref(database, `/School/Student/${studentId}/Result/SchoolExam`), (childSnapshot) => {
             const childData = childSnapshot.val();
-    const key = childSnapshot.key;
+            const key = childSnapshot.key;
     
-    
-        // If homework data is present
-        ViewPreviousSchoolResult.innerHTML += `
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-0 pb-0">
-                            <h5 class="card-title">${childData.Title}</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <table class="table rounded" >
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Subject</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Obtain</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        ${childData.Result}      
-                                    </tbody>
-                                </table>
-                            </p>
-                        </div>
-                        <div class="card-footer border-0 pt-0">
-                            <p class="card-text d-inline">${childData.Date}</p>
-                            <a href="javascript:void(0);"  class="card-link float-end DeleteSchoolExamResult" data-path="${key}">Delete</a>
+            // If exam result data is present
+            const newResultHTML = `
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header border-0 pb-0">
+                                <h5 class="card-title">${childData.Title}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <table class="table rounded" >
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Obtain</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${childData.Result}      
+                                        </tbody>
+                                    </table>
+                                </p>
+                            </div>
+                            <div class="card-footer border-0 pt-0">
+                                <p class="card-text d-inline">${childData.Date}</p>
+                                <a href="javascript:void(0);" class="card-link float-end DeleteSchoolExamResult" data-path="${key}">Delete</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
     
+            // Add new exam result HTML at the beginning of ViewPreviousSchoolResult
+            ViewPreviousSchoolResult.innerHTML = newResultHTML + ViewPreviousSchoolResult.innerHTML;
     
-            // console.log(childData);
+            // Attach event listener to the delete buttons for each exam result entry
             const DeleteSchoolExamResult = document.querySelectorAll(".DeleteSchoolExamResult");
-            DeleteHomeworkBtn.forEach((btn) => {
-            btn.addEventListener("click", (event) => {
-            const documentIdToDelete = event.target.getAttribute("data-path");
-            if (documentIdToDelete) {
-            const documentRefToDelete = ref(database, `/School/Student/${SelectPreviousResultExamStudent.value}/Result/SchoolExam/${documentIdToDelete}`);
-            
-            DeleteSchoolExamResultFunction(documentRefToDelete);
-            }
-            });
+            DeleteSchoolExamResult.forEach((btn) => {
+                btn.addEventListener("click", (event) => {
+                    const documentIdToDelete = event.target.getAttribute("data-path");
+                    if (documentIdToDelete) {
+                        const documentRefToDelete = ref(database, `/School/Student/${studentId}/Result/SchoolExam/${documentIdToDelete}`);
+                        DeleteSchoolExamResultFunction(documentRefToDelete);
+                    }
+                });
             });
         });
-        
     });
-    
-        });
     
         async function DeleteSchoolExamResultFunction(docRef) {
             alert("Result Delete in process")
@@ -739,69 +739,68 @@ async function DeleteAttendanceFunction(docRef) {
             }
             
 
-let  SelectPreviousResultTestStudent = document.getElementById("SelectPreviousResultTestStudent")
- let ViewPreviousClassResult = document.getElementById("ViewPreviousClassResult")
- SelectPreviousResultTestStudent.addEventListener('change', function(){
-                console.log(SelectPreviousResultExamStudent.value)
-             onValue(ref(database, `/School/Student/${SelectPreviousResultTestStudent.value}/Result/ClassExam`), (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
+            SelectPreviousResultTestStudent.addEventListener('change', function() {
+                let studentId = SelectPreviousResultTestStudent.value;
+            
+                let ViewPreviousClassResult = document.getElementById("ViewPreviousClassResultSection");
+                ViewPreviousClassResult.innerHTML = ''; // Clear previous content before adding new exam results
+            
+                // Attach event listener to the database reference for the selected student
+                onChildAdded(ref(database, `/School/Student/${studentId}/Result/ClassExam`), (childSnapshot) => {
                     const childData = childSnapshot.val();
-            const key = childSnapshot.key;
+                    const key = childSnapshot.key;
             
-            
-                // If homework data is present
-                ViewPreviousClassResult.innerHTML += `
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header border-0 pb-0">
-                                    <h5 class="card-title">${childData.Title}</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                        <table class="table rounded" >
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Subject</th>
-                                                    <th scope="col">Total</th>
-                                                    <th scope="col">Obtain</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                ${childData.Result}      
-                                            </tbody>
-                                        </table>
-                                    </p>
-                                </div>
-                                <div class="card-footer border-0 pt-0">
-                                    <p class="card-text d-inline">${childData.Date}</p>
-                                    <a href="javascript:void(0);"  class="card-link float-end DeleteSchoolExamResult" data-path="${key}">Delete</a>
+                    // If exam result data is present
+                    const newResultHTML = `
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h5 class="card-title">${childData.Title}</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <table class="table rounded" >
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Subject</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Obtain</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    ${childData.Result}      
+                                                </tbody>
+                                            </table>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer border-0 pt-0">
+                                        <p class="card-text d-inline">${childData.Date}</p>
+                                        <a href="javascript:void(0);" class="card-link float-end DeleteSchoolExamResult" data-path="${key}">Delete</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                `;
+                    `;
             
+                    // Add new exam result HTML at the beginning of ViewPreviousClassResult
+                    ViewPreviousClassResult.innerHTML = newResultHTML + ViewPreviousClassResult.innerHTML;
             
-                    // console.log(childData);
+                    // Attach event listener to the delete buttons for each exam result entry
                     const DeleteClassTestResultBtn = document.querySelectorAll(".DeleteSchoolExamResult");
                     DeleteClassTestResultBtn.forEach((btn) => {
-                    btn.addEventListener("click", (event) => {
-                    const documentIdToDelete = event.target.getAttribute("data-path");
-                    if (documentIdToDelete) {
-                    const documentRefToDelete = ref(database, `/School/Student/${SelectPreviousResultExamStudent.value}/Result/ClassExam/${documentIdToDelete}`);
-                    
-                    DeleteClassExamResultFunction(documentRefToDelete);
-                    }
-                    });
+                        btn.addEventListener("click", (event) => {
+                            const documentIdToDelete = event.target.getAttribute("data-path");
+                            if (documentIdToDelete) {
+                                const documentRefToDelete = ref(database, `/School/Student/${studentId}/Result/ClassExam/${documentIdToDelete}`);
+                                DeleteClassExamResultFunction(documentRefToDelete);
+                            }
+                        });
                     });
                 });
-                
             });
-            
-                });
-            
-                async function DeleteClassExamResultFunction(docRef) {
+
+            async function DeleteClassExamResultFunction(docRef) {
                     alert("Result Delete in process")
                     try {
                     await remove(docRef);
@@ -970,129 +969,69 @@ async function absentFunction(docRef, listItem) {
 
 
 // Add Homework Section
-let FromClassValue;
-let ToClassValue;
-let FromClass = document.querySelector("#FromClass");
-let ToClass = document.querySelector("#ToClass");
 
-ToClass.addEventListener('change', function(){
-    ToClassValue = ToClass.value;
-})
-
-let CurrentStudentList = document.querySelector("#CurrentStudentList");
-
-FromClass.addEventListener("change", function(){
-    FromClassValue = FromClass.value;
-onValue(ref(database, `/School/Class/${FromClass.value}/StudentList`), (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
-        const childData = childSnapshot.val();
-const key = childSnapshot.key;
-    CurrentStudentList.innerHTML += ` <li>
-    <div class="item-content">
-    <a href="#" class="item-media"><img src="../assets/images/images.png" alt="logo" width="55" /></a>
-    
-    <div class="item-inner">
-    <div class="item-title-row">
-    <h6 class="item-title"><a href="#">Name:- ${childData.Name}</a></h6>
-    <h5 class="item-title"><a href="#">Father:- ${childData.FatherName}</a></h5>
-    <h5 class="item-title"><a class="text-success" href="#">Mobile:- ${childData.Mobile}</a></h5>
-    </div>
-    </div>
-    </div>
-   
-    
-    <div class="sortable-handler"></div>
-    </li>`
-})
-})
-
-})
-
-TransferBtn.addEventListener('click', function(){
-onValue(ref(database, `School/Class/${FromClassValue}/StudentList`), async (snapshot) => {
-  snapshot.forEach(async (childSnapshot) => {
-    var key = childSnapshot.key;
-    var data = childSnapshot.val();
-
-    console.log("Copying data with key:", key);
-
-    try {
-      // Copy data to the new location
-      await set(ref(database, `School/Class/${ToClassValue}/StudentList`), data);
-
-      // Remove the copied node from the old location
-      await remove(ref(database, `School/Class/${FromClassValue}/StudentList${key}`));
-
-      alert("Data Transfer Seccessfully");
-    } catch (error) {
-      console.error("Error copying data:", error);
-    }
-  });
-});
-})
-
-
-
-
-
-let PreviousHomeworkPage = document.getElementById("PreviousHomeworkPage")
+let PreviousHomeworkPage = document.getElementById("PreviousHomeworkSection")
 let PreviousHomeworkClass = document.getElementById("PreviousHomeworkClass");
+PreviousHomeworkClass.addEventListener('change', function() {
+    console.log(PreviousHomeworkClass.value);
 
-PreviousHomeworkClass.addEventListener('change', function(){
+    // Clear the previous content before adding new homework
+    PreviousHomeworkPage.innerHTML = '';
 
-onValue(ref(database, `/School/Class/${PreviousHomeworkClass.value}/Homework`), (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
+    // Attach event listener to the database reference for the selected class
+    onChildAdded(ref(database, `/School/Class/${PreviousHomeworkClass.value}/Homework`), (childSnapshot) => {
         const childData = childSnapshot.val();
-const key = childSnapshot.key;
+        const key = childSnapshot.key;
 
-    // If homework data is present
-    PreviousHomeworkPage.innerHTML += `
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header border-0 pb-0">
-                        <h5 class="card-title">Daily Homework</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <table class="table rounded" >
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Subject</th>
-                                        <th scope="col">Work</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${childData.Homework}      
-                                </tbody>
-                            </table>
-                        </p>
-                    </div>
-                    <div class="card-footer border-0 pt-0">
-                        <p class="card-text d-inline">${childData.Date}</p>
-                        <a href="javascript:void(0);"  class="card-link float-end deleteHomework" data-path="${key}">Delete</a>
+        // If homework data is present
+        const newHomeworkHTML = `
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title">Daily Homework</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <table class="table rounded" >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Work</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${childData.Homework}      
+                                    </tbody>
+                                </table>
+                            </p>
+                        </div>
+                        <div class="card-footer border-0 pt-0">
+                            <p class="card-text d-inline">${childData.Date}</p>
+                            <a href="javascript:void(0);" class="card-link float-end deleteHomework" data-path="${key}">Delete</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
 
-        // console.log(childData);
+        // Add new homework HTML at the beginning of PreviousHomeworkPage
+        PreviousHomeworkPage.innerHTML = newHomeworkHTML + PreviousHomeworkPage.innerHTML;
+
+        // Attach event listener to the delete buttons for each homework entry
         const DeleteHomeworkBtn = document.querySelectorAll(".deleteHomework");
         DeleteHomeworkBtn.forEach((btn) => {
-        btn.addEventListener("click", (event) => {
-        const documentIdToDelete = event.target.getAttribute("data-path");
-        if (documentIdToDelete) {
-        const documentRefToDelete = ref(database, `/School/Class/${PreviousHomeworkClass.value}/Homework/${documentIdToDelete}`);
-        
-        DeleteHomeworkFunction(documentRefToDelete);
-        }
-        });
+            btn.addEventListener("click", (event) => {
+                const documentIdToDelete = event.target.getAttribute("data-path");
+                if (documentIdToDelete) {
+                    const documentRefToDelete = ref(database, `/School/Class/${PreviousHomeworkClass.value}/Homework/${documentIdToDelete}`);
+                    DeleteHomeworkFunction(documentRefToDelete);
+                }
+            });
         });
     });
-}) 
+});
 
-    });
 
     async function DeleteHomeworkFunction(docRef) {
         alert("Homework Delete in process")
@@ -1367,67 +1306,65 @@ deleteButtons.forEach((btn) => {
 
 let PreviousExamNewClass;  
 let PreviousExamClass = document.getElementById("PreviousSelectExamClass");
-PreviousExamClass.addEventListener('change', function(){
-    PreviousExamNewClass = PreviousExamClass.value;
+PreviousExamClass.addEventListener('change', function() {
+    let PreviousExamNewClass = PreviousExamClass.value;
 
+    let PreviousExamPage = document.getElementById("PreviousExamSection");
+    PreviousExamPage.innerHTML = ''; // Clear previous content before adding new exam entries
 
- let PreviousExamPage = document.getElementById("PreviousExamPage");
- onValue(ref(database, `/School/Class/${PreviousExamNewClass}/Exam`), (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
+    // Attach event listener to the database reference for the selected class
+    onChildAdded(ref(database, `/School/Class/${PreviousExamNewClass}/Exam`), (childSnapshot) => {
         const childData = childSnapshot.val();
-const key = childSnapshot.key;
+        const key = childSnapshot.key;
 
-
-    // If homework data is present
-    PreviousExamPage.innerHTML += `
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header border-0 pb-0">
-                        <h5 class="card-title">${childData.Title}</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <table class="table rounded" >
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Subject</th>
-                                        <th scope="col">Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${childData.Exam}      
-                                </tbody>
-                            </table>
-                        </p>
-                    </div>
-                    <div class="card-footer border-0 pt-0">
-                        <p class="card-text d-inline">${childData.Date}</p>
-                        <a href="javascript:void(0);"  class="card-link float-end DeleteExam" data-path="${key}">Delete</a>
+        // If exam data is present
+        const newExamHTML = `
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0">
+                            <h5 class="card-title">${childData.Title}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <table class="table rounded" >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${childData.Exam}      
+                                    </tbody>
+                                </table>
+                            </p>
+                        </div>
+                        <div class="card-footer border-0 pt-0">
+                            <p class="card-text d-inline">${childData.Date}</p>
+                            <a href="javascript:void(0);" class="card-link float-end DeleteExam" data-path="${key}">Delete</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
 
+        // Add new exam HTML at the beginning of PreviousExamPage
+        PreviousExamPage.innerHTML = newExamHTML + PreviousExamPage.innerHTML;
 
-        // console.log(childData);
+        // Attach event listener to the delete buttons for each exam entry
         const DeleteExam = document.querySelectorAll(".DeleteExam");
         DeleteExam.forEach((btn) => {
-        btn.addEventListener("click", (event) => {
-        const documentIdToDelete = event.target.getAttribute("data-path");
-        if (documentIdToDelete) {
-        const documentRefToDelete = ref(database, `/School/Class/${PreviousExamNewClass}/Exam/${documentIdToDelete}`);
-        
-        DeleteExamFunction(documentRefToDelete);
-        }
-        });
+            btn.addEventListener("click", (event) => {
+                const documentIdToDelete = event.target.getAttribute("data-path");
+                if (documentIdToDelete) {
+                    const documentRefToDelete = ref(database, `/School/Class/${PreviousExamNewClass}/Exam/${documentIdToDelete}`);
+                    DeleteExamFunction(documentRefToDelete);
+                }
+            });
         });
     });
-})  
-
-    });
-
+});
     async function DeleteExamFunction(docRef) {
         alert("Exam Delete in process")
         try {
