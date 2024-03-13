@@ -74,7 +74,7 @@ let BottomBar = document.querySelector("#BottomBar")
 let loginPage = document.querySelector("#Login-Page")
 auth.onAuthStateChanged((user) => {
 	if (user) {
-	
+	BottomBar.style.display = "block";
 	mainPage.style.display = "block";
 	username.innerHTML = localStorage.getItem("Name")
 	loginPage.style.display = "none";
