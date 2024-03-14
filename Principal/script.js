@@ -1591,8 +1591,9 @@ async function DeleteRoutineFunction(docRef) {
 let NewHomeworkClass
 let HomworkClass = document.getElementById("HomworkClass")
 
-HomworkClass.addEventListener('click', function(){
+HomworkClass.addEventListener('change', function(){
     NewHomeworkClass = HomworkClass.value
+    console.log(NewHomeworkClass)
 })
 
 function AddHomework() {
